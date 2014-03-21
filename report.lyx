@@ -270,6 +270,14 @@ The application involves using this wireless set up of an Android device
  the Arduino device from the Android application.
 \end_layout
 
+\begin_layout Subsection
+Report Organisation
+\end_layout
+
+\begin_layout Standard
+how this report is organised
+\end_layout
+
 \begin_layout Section
 Review of Theory and Previous Work
 \end_layout
@@ -379,6 +387,30 @@ Project Schedule
 
 \begin_layout Standard
 discuss something here
+\end_layout
+
+\begin_layout Section
+Design
+\end_layout
+
+\begin_layout Standard
+how this is all designed
+\end_layout
+
+\begin_layout Section
+Implementaion Details
+\end_layout
+
+\begin_layout Standard
+how it is implemented
+\end_layout
+
+\begin_layout Section
+Testing
+\end_layout
+
+\begin_layout Standard
+how it is tested
 \end_layout
 
 \begin_layout Section
