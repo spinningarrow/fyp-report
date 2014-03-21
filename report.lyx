@@ -279,7 +279,14 @@ Previous Work
 \end_layout
 
 \begin_layout Standard
-Some previous work was done at I2R
+A basic application was previously created at I2R to communicate with Arduino
+ boards from an Android device.
+ This application is like a simpler, lighter version of the XCTU desktop
+ software provided by Digi.
+ It can write values to the attached XBee’s AT registers, detect Arduino
+ nodes in the vicinity and sniff formatted packets broadcasted by these
+ nodes.
+ It cannot transmit any files to the nodes.
 \end_layout
 
 \begin_layout Subsection
@@ -287,7 +294,75 @@ Similar Applications
 \end_layout
 
 \begin_layout Standard
-List of similar applications
+The following is a list of applications that do something similar to the
+ proposed project; there are, however, differences in platforms, devices
+ and protocols used.
+\end_layout
+
+\begin_layout Subsubsection
+Nabto
+\end_layout
+
+\begin_layout Standard
+Nabto aims at being a “simple solution for device vendors to offer easy
+ remote access” as well as the “preferred communication” platform for the
+ internet of things.
+ It includes a web server interface for devices providing local and remote
+ connectivity with optional central services including remote update and
+ storage and logging abilities.
+\end_layout
+
+\begin_layout Standard
+Supported devices include Raspberry Pi, Windows/Unix, Microchip PIC, Nabduino,
+ Arduino (wired), etc.
+ Nabto provides demos for these devices; however, most of them are prototypes
+ using the proprietary uNabto Adapter and uNabto starter kit.
+\end_layout
+
+\begin_layout Standard
+The web interface uses a custom protocol (nabto://).
+ It is also available as an Android app, which is essentially a wrapper
+ around the web interface.
+\end_layout
+
+\begin_layout Subsubsection
+DaisyCentral and DaisyWorks Desktop
+\end_layout
+
+\begin_layout Standard
+DaisyWorks, Inc.
+ manufactures a device called the ‘Daisy’, an Arduino derivative with radio
+ jacks, IrDA, SD card slots, and Bluetooth.
+ This device can be used in conjunction with components called Daisy Petals
+ – small, modular devices that add extra functionality like moisture/light/tempe
+rature sensors, USB interface, and so on.
+\end_layout
+
+\begin_layout Standard
+In order to communicate with the Daisy, there are two main applications
+ provided: DaisyCentral, and DaisyWorks Desktop.
+ The former is an Android application while the latter is a cross-platform
+ desktop application, working on Windows, OSX (not tested on Lion and Mountain
+ Lion), and Linux (Debian).
+ These applications can wireless connect with the Bluetooth-enabled Daisy
+ device and can be used to toggle switches or to update the firmware on
+ the device.
+\end_layout
+
+\begin_layout Standard
+In addition to the DaisyCentral Android application, DaisyWorks also provides
+ two more Android applications: Daisy On/Off App, and Daisy Hygro Petal
+ App.
+\end_layout
+
+\begin_layout Standard
+These applications integrate with Petals to provide specific functionality
+ (such as showing the status of the sensors in the case of the Daisy Hygro
+ Petal App).
+ DaisyWorks also has an App Store, inviting developers to create and submit
+ applications written for the Daisy devices to the store so that other users
+ may benefit from them.
+ Currently, the App Store consists of 9 applications, all written by DaisyWorks.
 \end_layout
 
 \begin_layout Section
