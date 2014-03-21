@@ -481,7 +481,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/architecture-design.png
+	lyxscale 25
 	width 100line%
+	groupId CenterFull
 
 \end_inset
 
@@ -553,7 +555,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/2fa-flow.png
+	lyxscale 25
 	width 100line%
+	groupId CenterFull
 
 \end_inset
 
@@ -666,7 +670,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/2fa-sequence.png
+	lyxscale 25
 	width 100line%
+	groupId CenterFull
 
 \end_inset
 
@@ -736,7 +742,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/er-diagram.png
+	lyxscale 25
 	width 100line%
+	groupId CenterFull
 
 \end_inset
 
