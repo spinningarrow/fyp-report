@@ -63,6 +63,18 @@
 \align center
 
 \series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
 NANYANG TECHNOLOGICAL UNIVERSITY
 \end_layout
 
@@ -129,7 +141,7 @@ School of Computer Engineering
 2014
 \end_layout
 
-\begin_layout Title
+\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -226,15 +238,55 @@ Purpose and Scope
 \end_layout
 
 \begin_layout Standard
-Scopify
+This purpose of this project is to design and develop an innovative mobile
+ application for the Android platform.
+\end_layout
+
+\begin_layout Standard
+The application scope chosen involves wireless communication between the
+ Android device (mobile phone or tablet) and an Arduino device, using XBee
+ (802.15.4).
+\end_layout
+
+\begin_layout Standard
+The Android device needs to communicate with an Arduino board in order to
+ send files or instructions wirelessly.
+\end_layout
+
+\begin_layout Standard
+Since Arduino boards and Android devices support different wireless connection
+ standards, an adaptor is required either for the Arduino board or the Android
+ device.
+ In this project, an XBee adaptor is used on the Android device so that
+ the two interfaces communicate over the IEEE 802.15.4 wireless connection
+ standard as shown in the figure below:
+\end_layout
+
+\begin_layout Standard
+The application involves using this wireless set up of an Android device
+ and Arduino device in conjunction with a server in order to perform 2-Factor
+ Authentication between the devices and subsequently control or monitor
+ the Arduino device from the Android application.
 \end_layout
 
 \begin_layout Section
 Review of Theory and Previous Work
 \end_layout
 
+\begin_layout Subsection
+Previous Work
+\end_layout
+
 \begin_layout Standard
-Something
+Some previous work was done at I2R
+\end_layout
+
+\begin_layout Subsection
+Similar Applications
+\end_layout
+
+\begin_layout Standard
+List of similar applications
 \end_layout
 
 \begin_layout Section
