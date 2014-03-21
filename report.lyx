@@ -716,11 +716,11 @@ The server is secured using the HTTPS protocol over TLS 1.2
 \end_layout
 
 \begin_layout Standard
-Use Case diagrams
+Database Entity Relationship
 \end_layout
 
 \begin_layout Standard
-Sequence diagrams
+Android Application Use Cases
 \end_layout
 
 \begin_layout Standard
@@ -729,14 +729,6 @@ Data Flow diagrams
 
 \begin_layout Standard
 UI Flow for Android application
-\end_layout
-
-\begin_layout Standard
-2FA flow
-\end_layout
-
-\begin_layout Standard
-ER diagram
 \end_layout
 
 \begin_layout Standard
