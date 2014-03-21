@@ -154,32 +154,15 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-this is an abstract
+Lorem ipsum dolor sit amet.
+ U chebin estel amin.
+ Elbereth, Gilthoniel, silivren penna miriel.
+ O menel aglar elenath, na-chaered palan diriel.
 \end_layout
 
 \begin_layout Standard
-Something else goes here.
-\end_layout
-
-\begin_layout Standard
-eh?
-\end_layout
-
-\begin_layout Standard
-What is going on?
-\end_layout
-
-\begin_layout Standard
-Interesting.
-\end_layout
-
-\begin_layout Standard
-How do I start a new paragraph?
-\begin_inset Newline newline
-\end_inset
-
-Ah, that is how.
- Okay, got it.
+We still remember, we who dwell in this far land beneath the trees, the
+ starlight on the western seas.
 \end_layout
 
 \begin_layout Section*
@@ -187,39 +170,41 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-I would like to thank 
+I would like to thank the academy, the mystical pink unicorn and potatoes.
 \end_layout
 
 \begin_layout Standard
-you
+The Wheel of time turns and ages come and pass, leaving memories that become
+ legend.
+ Legend fades to myth and even myth is long forgotten when the age that
+ gave it birth comes again.
+ In one such age, an Age yet to come, an age long past; a wind rose in the
+ mountains.
+ The wind was not the beginning.
+ There are neither beginnings nor endings to the turning of the Wheel of
+ Time.
+ But it was 
+\emph on
+a
+\emph default
+ beginning.
 \end_layout
 
 \begin_layout Standard
-you
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-you
-\end_layout
+\begin_inset FloatList figure
 
-\begin_layout Standard
-and you
-\end_layout
+\end_inset
 
-\begin_layout Section*
-Table of Contents
-\end_layout
 
-\begin_layout Standard
-Here are the contents
-\end_layout
-
-\begin_layout Section*
-List of Figures
-\end_layout
-
-\begin_layout Standard
-Some figures
 \end_layout
 
 \begin_layout Section
