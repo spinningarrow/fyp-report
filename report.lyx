@@ -715,28 +715,95 @@ The communication between the mobile device (Android) and the node (Arduino)
 The server is secured using the HTTPS protocol over TLS 1.2
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Database Entity Relationship
 \end_layout
 
 \begin_layout Standard
-Android Application Use Cases
+Where the database is required and for what.
+ Description of the different entities, their fields and types.
+ Relationship between entities.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/er-diagram.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Database ER diagram
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Database-ER-diagram"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Database-ER-diagram"
+
+\end_inset
+
+ shows this entity relationship in the form of a diagram.
+\end_layout
+
+\begin_layout Subsection
+Use Cases for the Android Application
+\end_layout
+
+\begin_layout Standard
+Use case diagrams
+\end_layout
+
+\begin_layout Subsection
+User Interface Flow
+\end_layout
+
+\begin_layout Standard
+UI flow diagram
+\end_layout
+
+\begin_layout Subsection
 Data Flow diagrams
 \end_layout
 
 \begin_layout Standard
-UI Flow for Android application
-\end_layout
-
-\begin_layout Standard
-Technologies Used
-\end_layout
-
-\begin_layout Standard
-Software Used
+Flow of data between stuff
 \end_layout
 
 \begin_layout Section
@@ -744,7 +811,7 @@ Implementation Details
 \end_layout
 
 \begin_layout Standard
-how it is implemented
+how it is implemented, technologies used
 \end_layout
 
 \begin_layout Subsection
