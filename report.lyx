@@ -366,7 +366,7 @@ These applications integrate with Petals to provide specific functionality
 \end_layout
 
 \begin_layout Section
-Main section something
+Resources and Costing
 \end_layout
 
 \begin_layout Standard
@@ -374,11 +374,19 @@ hello there
 \end_layout
 
 \begin_layout Section
-Discussion
+Project Schedule
 \end_layout
 
 \begin_layout Standard
 discuss something here
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+discuss
 \end_layout
 
 \begin_layout Section
@@ -387,6 +395,14 @@ Conclusion
 
 \begin_layout Standard
 conclude something here
+\end_layout
+
+\begin_layout Section
+Recommendations
+\end_layout
+
+\begin_layout Standard
+recommend something
 \end_layout
 
 \begin_layout Section*
