@@ -59,56 +59,64 @@
 
 \begin_body
 
-\begin_layout Title
-Nanyang Technological University
-\end_layout
+\begin_layout Standard
+\align center
 
-\begin_layout Title
-A Knowledge-based Inventory Control System
-\end_layout
-
-\begin_layout Author
-Sahil Bajaj
+\series bold
+NANYANG TECHNOLOGICAL UNIVERSITY
 \end_layout
 
 \begin_layout Standard
 \align center
-School of Computer Engineering
-\end_layout
 
-\begin_layout Standard
-\align center
-2014
-\end_layout
-
-\begin_layout Title
-\begin_inset Newpage pagebreak
+\size huge
+\begin_inset VSpace vfill
 \end_inset
 
-Nanyang Technological University
-\end_layout
+Developing of Innovative and Cool Mobile Applications on Google's Android
+ Powered Devices
+\begin_inset VSpace vfill
+\end_inset
 
-\begin_layout Title
-SCE02001
-\end_layout
 
-\begin_layout Title
-A Knowledge-based Inventory Control System
 \end_layout
 
 \begin_layout Standard
 \align center
-Submitted in Partial Fulfillment of the Requirements for the Degree of Bachelor
- of Computer Engineering of the Nanyang Technological University
-\end_layout
+Submitted in partial fulfillment of the requirements 
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-\align center
+for the degree of Bachelor of Computer Engineering
+\begin_inset Newline newline
+\end_inset
+
+ of Nanyang Technological University
+\begin_inset VSpace vfill
+\end_inset
+
 by
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
 \end_layout
 
-\begin_layout Author
-Bajaj Sahil
+\begin_layout Standard
+\align center
+Sahil Bajaj
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -121,7 +129,7 @@ School of Computer Engineering
 2014
 \end_layout
 
-\begin_layout Standard
+\begin_layout Title
 \begin_inset Newpage pagebreak
 \end_inset
 
