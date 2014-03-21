@@ -59,8 +59,206 @@
 
 \begin_body
 
+\begin_layout Title
+Nanyang Technological University
+\end_layout
+
+\begin_layout Title
+A Knowledge-based Inventory Control System
+\end_layout
+
+\begin_layout Author
+Sahil Bajaj
+\end_layout
+
 \begin_layout Standard
-FYP report
+\align center
+School of Computer Engineering
+\end_layout
+
+\begin_layout Standard
+\align center
+2014
+\end_layout
+
+\begin_layout Title
+\begin_inset Newpage pagebreak
+\end_inset
+
+Nanyang Technological University
+\end_layout
+
+\begin_layout Title
+SCE02001
+\end_layout
+
+\begin_layout Title
+A Knowledge-based Inventory Control System
+\end_layout
+
+\begin_layout Standard
+\align center
+Submitted in Partial Fulfillment of the Requirements for the Degree of Bachelor
+ of Computer Engineering of the Nanyang Technological University
+\end_layout
+
+\begin_layout Standard
+\align center
+by
+\end_layout
+
+\begin_layout Author
+Bajaj Sahil
+\end_layout
+
+\begin_layout Standard
+\align center
+School of Computer Engineering
+\end_layout
+
+\begin_layout Standard
+\align center
+2014
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Standard
+this is an abstract
+\end_layout
+
+\begin_layout Standard
+Something else goes here.
+\end_layout
+
+\begin_layout Standard
+eh?
+\end_layout
+
+\begin_layout Standard
+What is going on?
+\end_layout
+
+\begin_layout Standard
+Interesting.
+\end_layout
+
+\begin_layout Standard
+How do I start a new paragraph?
+\begin_inset Newline newline
+\end_inset
+
+Ah, that is how.
+ Okay, got it.
+\end_layout
+
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+I would like to thank 
+\end_layout
+
+\begin_layout Standard
+you
+\end_layout
+
+\begin_layout Standard
+you
+\end_layout
+
+\begin_layout Standard
+you
+\end_layout
+
+\begin_layout Standard
+and you
+\end_layout
+
+\begin_layout Section*
+Table of Contents
+\end_layout
+
+\begin_layout Standard
+Here are the contents
+\end_layout
+
+\begin_layout Section*
+List of Figures
+\end_layout
+
+\begin_layout Standard
+Some figures
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Background
+\end_layout
+
+\begin_layout Standard
+lalalala
+\end_layout
+
+\begin_layout Subsection
+Purpose and Scope
+\end_layout
+
+\begin_layout Standard
+Scopify
+\end_layout
+
+\begin_layout Section
+Review of Theory and Previous Work
+\end_layout
+
+\begin_layout Standard
+Something
+\end_layout
+
+\begin_layout Section
+Main section something
+\end_layout
+
+\begin_layout Standard
+hello there
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+discuss something here
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+conclude something here
+\end_layout
+
+\begin_layout Section*
+References
+\end_layout
+
+\begin_layout Standard
+references go here
 \end_layout
 
 \end_body
