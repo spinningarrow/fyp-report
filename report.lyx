@@ -394,7 +394,10 @@ Design
 \end_layout
 
 \begin_layout Standard
-how this is all designed
+This section describes the design of the Android application as well as
+ its dependent components, starting with the overall system architecture,
+ and then elaborating on entity relationships, data flow, use cases, and
+ the user interface.
 \end_layout
 
 \begin_layout Subsection
@@ -457,8 +460,259 @@ local machine
 \end_layout
 
 \begin_layout Standard
-The following diagram shows how the various components interact with each
- other:
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architecture"
+
+\end_inset
+
+ shows how the various components interact with each other.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/architecture-design.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+High-level architecture diagram
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architecture"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two-Factor Authentication design
+\end_layout
+
+\begin_layout Standard
+One of the main features of this application is security via two-factor
+ authentication.
+ This is enabled through an encrypted request challenge-response between
+ the mobile device and Arduino node, followed by a comparison of auth tokens
+ sent to each device separately by the server.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:twofaflow"
+
+\end_inset
+
+ shows an overview of how this communication takes place.
+ For the purpose of simplification, the server and local machine are shown
+ as one component, since the sole purpose of the local machine is to relay
+ messages back and forth between the server and the Arduino node.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/2fa-flow.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Two-factor authentication flow diagram
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:twofaflow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following steps describe the two-factor authentication process in greater
+ detail:
+\end_layout
+
+\begin_layout Enumerate
+User logs from their Android device to the backend server using their username/p
+assword credentials
+\end_layout
+
+\begin_layout Enumerate
+If login is successful, these credentials are stored by the application
+\end_layout
+
+\begin_layout Enumerate
+User sends requests the server for the authentication key of the node it
+ wants to communicate with
+\end_layout
+
+\begin_layout Enumerate
+The server responds with the key if the node is valid
+\end_layout
+
+\begin_layout Enumerate
+The mobile device sends a request to the node, encrypted with the key it
+ received from the server
+\end_layout
+
+\begin_layout Enumerate
+The node checks the request; if it is valid it requests the mobile device
+ for the auth token
+\end_layout
+
+\begin_layout Enumerate
+At the same time, the node informs the server that a 2FA request has been
+ initiated by the mobile device
+\end_layout
+
+\begin_layout Enumerate
+The mobile device also informs the server of the same
+\end_layout
+
+\begin_layout Enumerate
+The server verifies this information and sends a 2FA code to both the node
+ and the user
+\end_layout
+
+\begin_layout Enumerate
+The user enters to 2FA code using the Android app
+\end_layout
+
+\begin_layout Enumerate
+The mobile device sends this code to the Arduino node, which verifies it
+ and sends a confirmation
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tfasequence"
+
+\end_inset
+
+ shows the sequence diagram for this procedure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/2fa-sequence.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sequence of the two-factor authentication process
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tfasequence"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two-factor authentication flow has been designed with the following
+ security features in mind:
+\end_layout
+
+\begin_layout Enumerate
+The communication between the mobile device (Android) and the node (Arduino)
+ uses 256-bit AES encryption
+\end_layout
+
+\begin_layout Enumerate
+The server is secured using the HTTPS protocol over TLS 1.2
 \end_layout
 
 \begin_layout Standard
