@@ -847,7 +847,11 @@ reference "fig:Database-ER-diagram"
 \end_layout
 
 \begin_layout Subsection
-Use Cases for the Android Application
+Use Cases
+\end_layout
+
+\begin_layout Subsubsection
+Android application use cases
 \end_layout
 
 \begin_layout Standard
@@ -859,7 +863,7 @@ The Android application is the main user-facing application.
 \begin_layout Standard
 Users of this system may use the Android application to perform several
  tasks, ranging from logging in to sending files.
- These use cases of the system are described below:
+ These use cases of the system are described below.
 \end_layout
 
 \begin_layout Standard
@@ -1169,6 +1173,223 @@ Use case diagram for the Android application
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Use-case-diagram"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Server use cases
+\end_layout
+
+\begin_layout Standard
+The server, which performs tasks such as validating user logins, generating
+ authentication tokens, and so on, also provides an interface for creating
+ new users, updating user details, and adding new sensor nodes with their
+ authentication keys.
+ These tasks are described below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #1: Create a new user 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Provides details of new user to be created.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Adds a new user to the database.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #2: Update a user's details 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Provide fields and values to be updated.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Update specified user.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #3: Add a new sensor node
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Provide details of the new sensor node.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Add sensor node to the database with the specified details.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:server-use-cases"
+
+\end_inset
+
+ is a use case diagram for these use cases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server-use-cases.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use case diagram for the backend server
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:server-use-cases"
 
 \end_inset
 
