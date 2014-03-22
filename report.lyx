@@ -1780,6 +1780,23 @@ http://www.mongodb.com/mongodb-overview
 n framework and JavaScript API.
 \end_layout
 
+\begin_layout Subsubsection
+Implementation details
+\end_layout
+
+\begin_layout Standard
+Details about the node app, used modules, functionality of the different
+ modules, how they interact.
+\end_layout
+
+\begin_layout Subsubsection
+REST API
+\end_layout
+
+\begin_layout Standard
+Description of the server REST API.
+\end_layout
+
 \begin_layout Subsection
 Polling component
 \end_layout
