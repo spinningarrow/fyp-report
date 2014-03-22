@@ -728,9 +728,63 @@ Database Entity Relationship
 \end_layout
 
 \begin_layout Standard
-Where the database is required and for what.
- Description of the different entities, their fields and types.
- Relationship between entities.
+The backend server performs various functions such as validating user logins,
+ responding to requests for authentication keys for the various sensor nodes,
+ generating authentication tokens, and coordinating the requests between
+ the mobile devices and sensor nodes.
+ To achieve these tasks, it needs to store various data, which it does in
+ the form of a simple database.
+\end_layout
+
+\begin_layout Standard
+The database contains the following entities and fields:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Users
+\series default
+: A collection of the users registered in the system.
+ It contains fields such as usernames, passwords, and email addresses.
+ It is primarily used when a user wishes to log in to the system.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Nodes
+\series default
+: A list of the nodes and their authentication keys.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Transmissions
+\series default
+: Whenever the server is asked to generate a new two-factor authentication
+ token, it creates one and sends it to the mobile device.
+ It also needs to send the same token to the sensor node so that the node
+ may compare the token it receives from the mobile device.
+ In order to do this, it stores the generated token along with the node
+ identifier, an identifier for the device that requested the token, and
+ the time of the request in this collection.
+ This data is then requested by the local machine periodically and any outstandi
+ng requests are transmitted to the respective sensor nodes.
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+nodes
+\series default
+ and 
+\series bold
+transmissions
+\series default
+ entities are related: a node may contain multiple transmission requests,
+ however a single transmission request can be for only one particular node.
 \end_layout
 
 \begin_layout Standard
