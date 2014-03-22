@@ -525,9 +525,23 @@ Two-Factor Authentication design
 \begin_layout Standard
 One of the main features of this application is security via two-factor
  authentication.
- This is enabled through an encrypted request challenge-response between
- the mobile device and Arduino node, followed by a comparison of auth tokens
- sent to each device separately by the server.
+ This is enabled through an encrypted challenge request-response mechanism
+ between the mobile device and the sensor node, followed by a comparison
+ of authentication tokens sent to each device separately by the server.
+\end_layout
+
+\begin_layout Standard
+The two-factor authentication flow has been designed with the following
+ security features in mind:
+\end_layout
+
+\begin_layout Enumerate
+The communication between the mobile device (Android) and the node (Arduino)
+ uses 256-bit AES encryption
+\end_layout
+
+\begin_layout Enumerate
+The server is secured using the HTTPS protocol over TLS 1.2
 \end_layout
 
 \begin_layout Standard
@@ -540,8 +554,8 @@ reference "fig:twofaflow"
 
  shows an overview of how this communication takes place.
  For the purpose of simplification, the server and local machine are shown
- as one component, since the sole purpose of the local machine is to relay
- messages back and forth between the server and the Arduino node.
+ as one component, since the purpose of the local machine is to relay messages
+ back and forth between the server and the Arduino node.
 \end_layout
 
 \begin_layout Standard
@@ -657,6 +671,8 @@ reference "fig:tfasequence"
 \end_inset
 
  shows the sequence diagram for this procedure.
+ After the authentication succeeds, the user may interact with the sensor
+ node, e.g., by sending files to it for the purpose of this project.
 \end_layout
 
 \begin_layout Standard
@@ -705,20 +721,6 @@ name "fig:tfasequence"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The two-factor authentication flow has been designed with the following
- security features in mind:
-\end_layout
-
-\begin_layout Enumerate
-The communication between the mobile device (Android) and the node (Arduino)
- uses 256-bit AES encryption
-\end_layout
-
-\begin_layout Enumerate
-The server is secured using the HTTPS protocol over TLS 1.2
 \end_layout
 
 \begin_layout Subsection
