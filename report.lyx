@@ -1586,6 +1586,16 @@ As mentioned in the design section, the backend server backend coordinates
 \end_layout
 
 \begin_layout Subsubsection
+Server stack description
+\end_layout
+
+\begin_layout Standard
+The server stack used in this project consists of three main components:
+ the software platform (Node.js), a web application framework (Express),
+ and a database (MongoDB).
+\end_layout
+
+\begin_layout Paragraph
 Node.js
 \end_layout
 
@@ -1617,7 +1627,7 @@ Node.js is a platform built on Chrome's JavaScript runtime for easily building
 \end_layout
 
 \begin_layout Standard
-According to the design specifications, the server mainly requires a lightweight
+As per to the design specifications, the server mainly requires a lightweight
  API for accessing a small number of functions.
  Due to the scalable and modular nature of Node.js as well as the vast number
  of libraries available for it, it was chosen as the architecture for the
@@ -1672,20 +1682,102 @@ Heroku - Cloud Application Platform: https://www.heroku.com/
 , although in this project the server is run locally.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Express
 \end_layout
 
 \begin_layout Standard
-Hello!
+Express is a small web application framework for Node.js.
+ It 
+\begin_inset Quotes eld
+\end_inset
+
+provides a robust set of features
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://expressjs.com/
 \end_layout
 
-\begin_layout Subsubsection
+\end_inset
+
+ for building small-to-large web applications (single page, multi-page,
+ as well as hybrid applications).
+\end_layout
+
+\begin_layout Standard
+Express is essentially a thin abstraction on top of Node.js's HTTP module
+ and Connect middleware
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.senchalabs.org/connect/
+\end_layout
+
+\end_inset
+
+.
+ While not strictly required - the server API could be written in vanilla
+ Node.js - it provides certain syntactic sugar and methods that are especially
+ useful when developing a RESTful web interface.
+\end_layout
+
+\begin_layout Paragraph
 MongoDB
 \end_layout
 
 \begin_layout Standard
-Hi!
+As can be seen from the entity relationship diagram above, the data requirements
+ for the server are fairly straightforward with no complex dependencies.
+ Consequently, a fast and flexible database was chosen to serve as the data
+ store for the application.
+\end_layout
+
+\begin_layout Standard
+MongoDB is a non-relational NoSQL database.
+ A NoSQL database 
+\begin_inset Quotes eld
+\end_inset
+
+provides a mechanism for storage and retrieval of data that is modeled in
+ means other than the tabular relations used in relational databases
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://en.wikipedia.org/wiki/Nosql
+\end_layout
+
+\end_inset
+
+ and such databases are usually simple in design and scale very well horizontall
+y.
+\end_layout
+
+\begin_layout Standard
+MongoDB is one of the most popular NoSQL databases
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.mongodb.com/mongodb-overview
+\end_layout
+
+\end_inset
+
+, and can be thought as the de-facto choice for Node.js web applications
+ because of its ease of use and features such as the JSON data model, aggregatio
+n framework and JavaScript API.
 \end_layout
 
 \begin_layout Subsection
