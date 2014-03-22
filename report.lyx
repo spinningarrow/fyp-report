@@ -388,10 +388,13 @@ Design
 \end_layout
 
 \begin_layout Standard
-This section describes the design of the Android application as well as
- its dependent components, starting with the overall system architecture,
- and then elaborating on entity relationships, data flow, use cases, and
- the user interface.
+This section describes the design of the entire system: the Android application
+ as well as its dependent components.
+ The overall system architecture is explained, followed by a description
+ of the entity relationships, use cases, and the user interface.
+ Since the two-factor authentication backed security is a main component
+ of the design of the system, a detailed description of its flow has been
+ provided.
 \end_layout
 
 \begin_layout Subsection
@@ -400,14 +403,14 @@ System architecture
 
 \begin_layout Standard
 The entire system consists of four components: an Android mobile device,
- an Arduino device node, a server backend, and a local personal computer
+ an Arduino sensor node, a server backend, and a local personal computer
  that polls the server.
 \end_layout
 
 \begin_layout Standard
-The Android and Arduino devices, along with the local machine, have XBee
- modules attached to them to facilitate wireless communication using the
- 802.15.4 protocol.
+The Android and Arduino devices, and the local machine have XBee modules
+ attached to them to facilitate wireless communication using the 802.15.4
+ protocol.
  In the case of the Android device and local machine, the XBee modules are
  connected via USB using an XBee Explorer Dongle.
  For the Arduino device, the XBee is connected using an XBee Shield.
@@ -430,7 +433,8 @@ The
 \series bold
 Arduino node
 \series default
- waits for requests from the mobile device and acts accordingly.
+ waits for requests from the mobile device and accordingly responds to the
+ encrypted challenges and authentication requests.
 \end_layout
 
 \begin_layout Standard
@@ -440,6 +444,8 @@ server
 \series default
  backend coordinates the two-factor authentication requests, generating
  tokens to be sent to the mobile device and specified node.
+ It also stores the credentials and details of the various users who log
+ in via the Android application.
 \end_layout
 
 \begin_layout Standard
@@ -447,7 +453,7 @@ The
 \series bold
 local machine
 \series default
- runs a simple Java program that periodically polls the server, checking
+ runs a small Java program that periodically polls the server, checking
  for any outstanding transmission requests.
  If it finds any, it relays these to the respective nodes via the XBee module
  attached to it.
