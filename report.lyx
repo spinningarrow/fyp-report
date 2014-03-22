@@ -1517,7 +1517,7 @@ When the user opens the application for the first time, they are greeted
  the node and can transfer files to it.
  The user is presented with a list of files.
  On choosing a particular file, the file transfer process is initiated,
- with visual feedback showing the status of the file transer.
+ with visual feedback showing the status of the file transfer.
 \end_layout
 
 \begin_layout Subsection
@@ -1541,7 +1541,19 @@ Software Used
 \end_layout
 
 \begin_layout Standard
-details of software used
+IntelliJ IDEA 13
+\end_layout
+
+\begin_layout Standard
+Sublime Text 3
+\end_layout
+
+\begin_layout Standard
+Arduino IDE
+\end_layout
+
+\begin_layout Standard
+xctu-ng
 \end_layout
 
 \begin_layout Subsection
@@ -1549,7 +1561,7 @@ Android application
 \end_layout
 
 \begin_layout Standard
-that's how
+xbee-api
 \end_layout
 
 \begin_layout Subsection
@@ -1557,7 +1569,7 @@ Arduino application
 \end_layout
 
 \begin_layout Standard
-and that
+xbee-arduino
 \end_layout
 
 \begin_layout Subsection
@@ -1565,7 +1577,115 @@ Server
 \end_layout
 
 \begin_layout Standard
-and that
+As mentioned in the design section, the backend server backend coordinates
+ the two-factor authentication requests, generating tokens to be sent to
+ the mobile device and specified node.
+ It also provides functionality for authenticating users.
+ The following subsections describe the various components of the server
+ solution stack.
+\end_layout
+
+\begin_layout Subsubsection
+Node.js
+\end_layout
+
+\begin_layout Standard
+Node.js forms the base of the server stack.
+ According to its website
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+nodejs.org
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Node.js is a platform built on Chrome's JavaScript runtime for easily building
+ fast, scalable network applications.
+ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight
+ and efficient, perfect for data-intensive real-time applications that run
+ across distributed devices.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the design specifications, the server mainly requires a lightweight
+ API for accessing a small number of functions.
+ Due to the scalable and modular nature of Node.js as well as the vast number
+ of libraries available for it, it was chosen as the architecture for the
+ server.
+ While no complex web interface is needed for this project, adding one in
+ the future is as simple as requiring one of the standard templating libraries
+ such as EJS
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Embedded JavaScript: http://embeddedjs.com/
+\end_layout
+
+\end_inset
+
+, Handlebars
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Handlebars.js - Minimal Templating on Steroids: http://handlebarsjs.com/
+\end_layout
+
+\end_inset
+
+, or Jade
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Jade - Template Engine: http://jade-lang.com/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Node.js applications also enjoy easy deployment on cloud service providers
+ such as Heroku
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Heroku - Cloud Application Platform: https://www.heroku.com/
+\end_layout
+
+\end_inset
+
+, although in this project the server is run locally.
+\end_layout
+
+\begin_layout Subsubsection
+Express
+\end_layout
+
+\begin_layout Standard
+Hello!
+\end_layout
+
+\begin_layout Subsubsection
+MongoDB
+\end_layout
+
+\begin_layout Standard
+Hi!
 \end_layout
 
 \begin_layout Subsection
@@ -1573,7 +1693,7 @@ Polling component
 \end_layout
 
 \begin_layout Standard
-and that
+xbee-api
 \end_layout
 
 \begin_layout Section
