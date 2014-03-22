@@ -860,7 +860,66 @@ User Interface Flow
 \end_layout
 
 \begin_layout Standard
-UI flow diagram
+UI flow diagram.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/ui-flow.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+User interface flow diagram
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:User-interface-flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:User-interface-flow"
+
+\end_inset
+
+ shows the basic UI flow for the Android application.
 \end_layout
 
 \begin_layout Subsection
