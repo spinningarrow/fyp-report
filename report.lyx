@@ -1415,7 +1415,49 @@ User Interface Flow
 \end_layout
 
 \begin_layout Standard
-UI flow diagram.
+For the Android application, the user experience focuses on providing a
+ simple interface to the user, with each screen focusing on a single task,
+ thus avoiding any confusion.
+\end_layout
+
+\begin_layout Standard
+Some of the ideas incorporated in the user interface include:
+\end_layout
+
+\begin_layout Enumerate
+Straightforward navigation
+\end_layout
+
+\begin_layout Enumerate
+Clear visual and textual feedback
+\end_layout
+
+\begin_layout Enumerate
+Following design conventions
+\end_layout
+
+\begin_layout Enumerate
+Clutter-free design
+\end_layout
+
+\begin_layout Standard
+The design of the interface for this application is influenced by ideas
+ described in Steve Krug's book, 
+\emph on
+Don't Make Me Think
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:User-interface-flow"
+
+\end_inset
+
+ shows the basic UI flow for the Android application.
 \end_layout
 
 \begin_layout Standard
@@ -1457,24 +1499,25 @@ name "fig:User-interface-flow"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:User-interface-flow"
-
-\end_inset
-
- shows the basic UI flow for the Android application.
+When the user opens the application for the first time, they are greeted
+ by a login form.
+ If the login credentials entered by the user are incorrect, a message is
+ displayed asking them to try again.
+ If successful, the user is then asked to choose a particular node to connect
+ to.
+ Once the user makes their choice, they are asked to enter the two-factor
+ authentication token received by them.
+ Upon entering a correct authentication token, the user is connected to
+ the node and can transfer files to it.
+ The user is presented with a list of files.
+ On choosing a particular file, the file transfer process is initiated,
+ with visual feedback showing the status of the file transer.
 \end_layout
 
 \begin_layout Subsection
