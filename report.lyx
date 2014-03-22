@@ -792,6 +792,69 @@ Use Cases for the Android Application
 Use case diagrams
 \end_layout
 
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Use-case-diagram"
+
+\end_inset
+
+ shows the use cases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/use-case.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use case diagram for the Android application
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Use-case-diagram"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Android application has several high level use cases.
+\end_layout
+
 \begin_layout Subsection
 User Interface Flow
 \end_layout
