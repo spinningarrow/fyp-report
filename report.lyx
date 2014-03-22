@@ -851,7 +851,282 @@ Use Cases for the Android Application
 \end_layout
 
 \begin_layout Standard
-Use case diagrams
+The Android application is the main user-facing application.
+ It interacts with the sensor node directly, as well as with the help of
+ the backend server.
+\end_layout
+
+\begin_layout Standard
+Users of this system may use the Android application to perform several
+ tasks, ranging from logging in to sending files.
+ These use cases of the system are described below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #1: User wants to log in to the system
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario:
+\shape default
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Enters their username and password, and presses the submit button.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Verifies the credentials entered by the user (by checking the server database)
+, and opens the next activity if they are correct.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #2: User wants to log out from the system 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Presses the 'log out' button.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Clears the user's history and stored credentials.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape smallcaps
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #3: User wants to connect to a sensor node 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step 1: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Chooses a particular sensor node to connect to.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Sends a request to the server for that node's authentication key.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step 2: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Using the authentication key, sends an encrypted request to the node for
+ connecting to it.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step 3: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Once the node responds in the affirmative, requests the server for a two-facto
+r authentication token for the node.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Step 4: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Enters the authentication token received.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Sends an encrypted request to the sensor node with the authentication
+ token, and waits for the node to respond with an 'all clear' message.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Title
+\shape default
+: Use Case #4: User wants to send a file to the node 
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape smallcaps
+Main success scenario: 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+User
+\emph default
+: Chooses a particular file to send to the sensor node.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+System
+\emph default
+: Transmits the file (breaking it into multiple packets if necessary) using
+ the node's authentication key.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -862,7 +1137,8 @@ reference "fig:Use-case-diagram"
 
 \end_inset
 
- shows the use cases.
+ shows these use cases and their dependencies in the form of a use case
+ diagram.
 \end_layout
 
 \begin_layout Standard
@@ -911,10 +1187,6 @@ name "fig:Use-case-diagram"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The Android application has several high level use cases.
 \end_layout
 
 \begin_layout Subsection
