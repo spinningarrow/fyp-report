@@ -1577,9 +1577,9 @@ Server
 \end_layout
 
 \begin_layout Standard
-As mentioned in the design section, the backend server backend coordinates
- the two-factor authentication requests, generating tokens to be sent to
- the mobile device and specified node.
+As mentioned in the design section, the backend server coordinates the two-facto
+r authentication requests, generating tokens to be sent to the mobile device
+ and specified node.
  It also provides functionality for authenticating users.
  The following subsections describe the various components of the server
  solution stack.
@@ -1781,12 +1781,207 @@ n framework and JavaScript API.
 \end_layout
 
 \begin_layout Subsubsection
-Implementation details
+Security
 \end_layout
 
 \begin_layout Standard
-Details about the node app, used modules, functionality of the different
- modules, how they interact.
+The Express web application creates an HTTPS server, which runs on port
+ 8000 by default.
+\end_layout
+
+\begin_layout Standard
+This secure communication channel makes use of the TLS 1.2 protocol.
+ TLS (or Transport Layer Security) is the successor to the SSL protocol,
+ and uses public-key cryptography to encrypt messages.
+ In public-key cryptography, each peer has two keys - a public key and a
+ private key.
+ In the case of TLS, the public key is known as a certificate.
+ For the scope of this project, a self-signed certificate has been used.
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+openssl
+\family default
+ toolkit
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://www.openssl.org/
+\end_layout
+
+\end_inset
+
+ has been used to generate the required keys and certificates.
+ The procedure for generating these is detailed below: 
+\end_layout
+
+\begin_layout Enumerate
+Generate a private key.
+ Using the command below, a 2048-bit key is generated and written to the
+ file 
+\family typewriter
+private-key.pem
+\family default
+.
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+openssl genrsa -out private-key.pem 2048
+\end_layout
+
+\begin_layout Enumerate
+After this, a CSR (Certificate Signing Request) must be generated using
+ the private key created in the previous step.
+ This CSR can be passed on to a Certificate Authority to sign a certificate
+ or may be used to self-sign a certificate, as is done in the following
+ step.
+ 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+openssl req -new -key private-key.pem -out csr.pem
+\end_layout
+
+\begin_layout Enumerate
+Finally, generate a public certificate using the CSR and private key generated
+ in the previous two steps.
+ 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+openssl x509 -req -in csr.pem -signkey private-key.pem -out public-cert.pem
+\end_layout
+
+\begin_layout Standard
+Once these keys have been generated, the web application must be told to
+ use them.
+ This can easily be done using Node.js's built-in 
+\family typewriter
+https
+\family default
+ module
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://nodejs.org/api/https.html
+\end_layout
+
+\end_inset
+
+, passing in an options object containing the 
+\family typewriter
+key
+\family default
+ and 
+\family typewriter
+cert
+\family default
+ paramaters.
+\end_layout
+
+\begin_layout Standard
+Running the 
+\family typewriter
+curl
+\family default
+ command with headers enabled, we can see that the server is running HTTPS
+ using TLS 1.2 ecrypted using 256-bit encryption.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+$ curl -kv --user admin:admin https://spinningarrow.no-ip.biz:8000/
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+* Trying 172.22.109.112...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+* Connected to spinningarrow.no-ip.biz (172.22.109.112) port 8000 (#0) 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+* TLS 1.2 connection using TLS_RSA_WITH_AES_256_CBC_SHA256 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+* Server certificate: spinningarrow.no-ip.biz 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing single
+\noindent
+
+\family typewriter
+* Server auth using Basic with user 'admin'
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
