@@ -1559,22 +1559,6 @@ xctu-ng
 \end_layout
 
 \begin_layout Subsection
-Android application
-\end_layout
-
-\begin_layout Standard
-xbee-api
-\end_layout
-
-\begin_layout Subsection
-Arduino application
-\end_layout
-
-\begin_layout Standard
-xbee-arduino
-\end_layout
-
-\begin_layout Subsection
 Server
 \end_layout
 
@@ -2379,6 +2363,22 @@ name "fig:nodemailer"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Android application
+\end_layout
+
+\begin_layout Standard
+details
+\end_layout
+
+\begin_layout Subsection
+Arduino application 
+\end_layout
+
+\begin_layout Standard
+details
 \end_layout
 
 \begin_layout Subsection
