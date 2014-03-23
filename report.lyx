@@ -2383,7 +2383,39 @@ Android application
 \end_layout
 
 \begin_layout Standard
-details
+Here be dragons.
+\end_layout
+
+\begin_layout Subsubsection
+XBee Library
+\end_layout
+
+\begin_layout Standard
+details on XBEE_I2R library.
+\end_layout
+
+\begin_layout Subsubsection
+Functional Implementation
+\end_layout
+
+\begin_layout Standard
+details.
+\end_layout
+
+\begin_layout Subsubsection
+Support Classes
+\end_layout
+
+\begin_layout Standard
+details.
+\end_layout
+
+\begin_layout Subsubsection
+User Interface
+\end_layout
+
+\begin_layout Standard
+details.
 \end_layout
 
 \begin_layout Subsection
