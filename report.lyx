@@ -4,6 +4,7 @@
 \begin_header
 \textclass article
 \begin_preamble
+\usepackage{listings}
 \pagenumbering{roman}
 \let\myTOC\tableofcontents
 \renewcommand\tableofcontents{%
@@ -60,6 +61,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\listings_params "basicstyle={\ttfamily},columns=fullflexible"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -1778,6 +1780,84 @@ http://www.mongodb.com/mongodb-overview
 , and can be thought as the de-facto choice for Node.js web applications
  because of its ease of use and features such as the JSON data model, aggregatio
 n framework and JavaScript API.
+\end_layout
+
+\begin_layout Standard
+Since it is a non-relational database, the traditional RDBMS concepts of
+ tables, fields, and records are not really the same.
+ However, in MongoDB, a 'collection' is similar to a table, and a 'document'
+ inside the collection is similar to a record.
+ Documents even in the same collection can have different fields, i.e., it
+ is a schemaless database.
+ However, it is possible to define a schema and this has been done using
+ Node.js's Mongoose Object Modeling module
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://mongoosejs.com/
+\end_layout
+
+\end_inset
+
+ for consistency.
+\end_layout
+
+\begin_layout Standard
+Mongoose allows defining schemas, compiling them to models, and then saving
+ documents based on these models.
+ The listing below shows how these are implemented for the Users collection.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstset{tabsize=2,breaklines=true,numbers=left,xleftmargin=30pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[language=C,]{code/mongoose.js}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
