@@ -2403,7 +2403,7 @@ https://code.google.com/p/xbee-arduino/
 \end_inset
 
  library.
- This library only supports XBees configured in API mode, so that it can
+ This library only supports XBees configured in API mode so that it can
  take advantage of features such as ACKs, retries, packet checksums, and
  so on
 \begin_inset Foot
@@ -2416,7 +2416,7 @@ https://code.google.com/p/xbee-api/wiki/WhyApiMode
 \end_inset
 
 .
- It supports most of the packet types including TX/RX (transmission, reception),
+ It supports most of the packet types including TX/RX (transmission/reception),
  AT command, status, and so on.
  In this project, mainly the TX and RX packet types were used.
 \end_layout
@@ -2443,6 +2443,11 @@ Tx16Request
 TxStatusResponse
 \family default
  object is used to check whether or not the packet transmission was successful.
+\end_layout
+
+\begin_layout Standard
+Details on the usage of this library and its methods are described in subsequent
+ sections.
 \end_layout
 
 \begin_layout Subsubsection
