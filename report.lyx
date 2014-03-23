@@ -2386,8 +2386,317 @@ details
 Arduino application 
 \end_layout
 
+\begin_layout Subsubsection
+XBee library
+\end_layout
+
 \begin_layout Standard
-details
+In order to communicate with the XBee radio, the Arduino application uses
+ the xbee-arduino
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://code.google.com/p/xbee-arduino/
+\end_layout
+
+\end_inset
+
+ library.
+ This library only supports XBees configured in API mode, so that it can
+ take advantage of features such as ACKs, retries, packet checksums, and
+ so on
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://code.google.com/p/xbee-api/wiki/WhyApiMode
+\end_layout
+
+\end_inset
+
+.
+ It supports most of the packet types including TX/RX (transmission, reception),
+ AT command, status, and so on.
+ In this project, mainly the TX and RX packet types were used.
+\end_layout
+
+\begin_layout Standard
+The library uses Arduino's 
+\family typewriter
+Serial
+\family default
+ interface, which needs to be invoked with the same baud rate at which the
+ XBee is configured.
+ It provides an 
+\family typewriter
+Rx16Response
+\family default
+ object for receiving RX packets addressed using 16-bit addressing, and
+ a 
+\family typewriter
+Tx16Request
+\family default
+ object for sending TX packets also with 16-bit addressing.
+ The 
+\family typewriter
+TxStatusResponse
+\family default
+ object is used to check whether or not the packet transmission was successful.
+\end_layout
+
+\begin_layout Subsubsection
+AES library
+\end_layout
+
+\begin_layout Standard
+The Arduino sensor node transmits packets encrypted with 256-bit AES encryption,
+ and decrypts received packets with the same algorithm.
+ For this purpose, the ArduinoAES256 library
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://github.com/qistoph/ArduinoAES256
+\end_layout
+
+\end_inset
+
+ by Chris van Marle has been used.
+ It is based on a portable C implementation by Ilya Levin
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.literatecode.com/aes256
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Using this library involves the following steps:
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Defining an AES-256 context
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+aes256_context ctxt;
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Creating an encryption key
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Since we are using 256-bit encryption (equivalent to 32 bytes), a byte array
+ of size 32 is used to store the key.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+uint8_t key[] = {
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f,
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Initialising the library
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+The context and key created above are used for initialisation.
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+aes256_init(&ctxt, key);
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Creating the data that is to be encrypted
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+The AES encryption algorithm has a fixed block size of 128 bits (equivalent
+ to 16 bytes), because of which the data to be encrypted _must_ have a size
+ that is a multiple of 16.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+uint8_t data[] = { 
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x61, 0x73, 0x64, 0x66, 0x61, 0x73, 0x64, 0x66, 
+\end_layout
+
+\begin_layout Plain Layout
+
+  0x61, 0x73, 0x64, 0x66, 0x61, 0x73, 0x64, 0x66 
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Encrypting the data
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+For data that is larger than 16 bytes, the encryption function must be called
+ repeatedly to update the data in blocks of 128 bits.
+ For example, for data of size 32 bytes, the function needs to be called
+ again to encrypt the remaining 16 bytes.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+aes256_encrypt_ecb(&ctxt, data); 
+\begin_inset Newline newline
+\end_inset
+
+aes256_encrypt_ecb(&ctxt, data+16);
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Decrypting the data
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Similar to the encryption procedure, if the data has a size greater than
+ 16 bytes, the function must be called again.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+aes256_decrypt_ecb(&ctxt, data);
+\begin_inset Newline newline
+\end_inset
+
+aes256_decrypt_ecb(&ctxt, data + 16);
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Releasing the context
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+Finally, the context created in the first step is released.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+aes256_done(&ctxt);
+\end_layout
+
+\begin_layout Standard
+The last step is not used in this project since the encryption and decryption
+ is done in Arduino's 
+\family typewriter
+loop()
+\family default
+ function as described in the following section.
+\end_layout
+
+\begin_layout Subsubsection
+Program structure
+\end_layout
+
+\begin_layout Standard
+stuff
 \end_layout
 
 \begin_layout Subsection
