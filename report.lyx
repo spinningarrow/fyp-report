@@ -1908,6 +1908,18 @@ curl
 \family default
  command with headers enabled, we can see that the server is running HTTPS
  using TLS 1.2 ecrypted using 256-bit encryption.
+ The openssl website has a list of all the available ciphers and their descripti
+ons
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1985,11 +1997,72 @@ $ curl -kv --user admin:admin https://spinningarrow.no-ip.biz:8000/
 \end_layout
 
 \begin_layout Subsubsection
-REST API
+User Authentication
 \end_layout
 
 \begin_layout Standard
-Description of the server REST API.
+The server uses HTTP Basic Authentication to verify the user's credentials.
+ In this method, the credentials are Base64 encoded (but not encrypted or
+ hashed), which is one reason why the HTTPS security is essential for the
+ server's communication process.
+\end_layout
+
+\begin_layout Standard
+The Node.js Passport module
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://passportjs.org/
+\end_layout
+
+\end_inset
+
+ has been used.
+ It is an authentication middleware that can simply be dropped into any
+ Express web application.
+ It supports a variety of authentication mechanisms from Basic and Digest
+ authentication, to OpenID, Facebook, and Google logins.
+\end_layout
+
+\begin_layout Standard
+When Passport is invoked, it reads the Users collection from the database,
+ comparing the provided username with the password to see if they match.
+ The 
+\family typewriter
+passport-http
+\family default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://github.com/jaredhanson/passport-http
+\end_layout
+
+\end_inset
+
+ module has been used to provide Basic Authentication using Passport's BasicStra
+tegy authentication strategy.
+\end_layout
+
+\begin_layout Standard
+All API endpoints that need to be protected simply invoke the Passport middlewar
+e using the following single line of code:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+passport.authenticate('basic', { session: false })
+\end_layout
+
+\begin_layout Standard
+Token Generation
+\end_layout
+
+\begin_layout Standard
+something wicked this way comes.
 \end_layout
 
 \begin_layout Subsection
