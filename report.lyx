@@ -2386,6 +2386,18 @@ details
 Arduino application 
 \end_layout
 
+\begin_layout Standard
+In Arduino parlance, a program is known as a 'sketch'.
+ Sketches are created using the Arduino IDE or some other text editor and
+ uploaded to the Arduino board usually over a serial USB interface.
+ 
+\end_layout
+
+\begin_layout Standard
+The following sections describe the various components of the Arduino sketch,
+ the structure of the program, and how the sketch works.
+\end_layout
+
 \begin_layout Subsubsection
 XBee library
 \end_layout
@@ -2701,7 +2713,329 @@ Program structure
 \end_layout
 
 \begin_layout Standard
-stuff
+Every Arduino sketch must contain two functions: 
+\family typewriter
+setup()
+\family default
+ and 
+\family typewriter
+loop()
+\family default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://arduino.cc/en/Tutorial/BareMinimum
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+setup
+\family default
+ function is called the very first time the sketch starts, which is when
+ it is loaded on to the Arduino board or when the board is reset.
+ Library initialisation procedures, and setting pin modes is done in this
+ function.
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+loop
+\family default
+ function runs after setup completes, and runs repeatedly until the board
+ is reset or powered down.
+ The code in the 
+\family typewriter
+loop
+\family default
+ function forms the main basis of the Arduino sketch.
+\end_layout
+
+\begin_layout Standard
+The code for the Arduino sketch can be broken down into three different
+ sections, each of which is described below.
+\end_layout
+
+\begin_layout Paragraph
+
+\shape smallcaps
+Initialisation
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The initialisation phase occurs before the 
+\family typewriter
+setup
+\family default
+ function runs, and is used to define certain variables and create objects.
+\end_layout
+
+\begin_layout Subparagraph
+Sensor node-specific configuration
+\end_layout
+
+\begin_layout Standard
+Every sensor node must have a unique ID, and must also have its own 256-bit
+ AES encryption key.
+ These are set using the 
+\family typewriter
+nodeId
+\family default
+ and 
+\family typewriter
+key
+\family default
+ byte arrays, and should be modified when the sketch is installed on a new
+ node.
+\end_layout
+
+\begin_layout Subparagraph
+XBee configuration
+\end_layout
+
+\begin_layout Standard
+Objects are created to interact with the XBee module.
+ These include instances of 
+\family typewriter
+XBee
+\family default
+, 
+\family typewriter
+XBeeResponse
+\family default
+, 
+\family typewriter
+Rx16Response
+\family default
+, 
+\family typewriter
+Tx16Request
+\family default
+, and 
+\family typewriter
+TxStatusResponse
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+In addition to this, byte arrays of size 32 are created to store the packets
+ that are to be sent and received by the sensor node.
+ 
+\end_layout
+
+\begin_layout Subparagraph
+AES setup
+\end_layout
+
+\begin_layout Standard
+An 
+\family typewriter
+aes256_context
+\family default
+ is created, along with two byte arrays used for storing and retrieving
+ cryptographic nonce values.
+\end_layout
+
+\begin_layout Paragraph
+
+\shape smallcaps
+Setup
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Two main things happen in the setup method:
+\end_layout
+
+\begin_layout Enumerate
+The XBee communication is initialised at a specified baud rate (57600 in
+ this project).
+\end_layout
+
+\begin_layout Enumerate
+The AES library is initialised using the context created and the key chosen.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\shape smallcaps
+Loop
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As mentioned previously, the 
+\family typewriter
+loop
+\family default
+ function repeats endlessly.
+ It starts by waiting to receive an RX response.
+ Once it receives this packet, it attempts to decrypt it and take action
+ based on the packet's contents.
+ The methods described below are used to achieve the various functionality
+ required of the sensor node.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+receiveAuthRequest
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This is the main function which runs inside Arduino's 
+\family typewriter
+loop()
+\family default
+ function, waiting for a packet to be sent to the sensor node.
+ If it receives such a packet, it decrypts it and then creates an appropriate
+ response.
+ It also stores the nonce values in the authentication request sent by the
+ mobile device.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+createAuthResponsePacket
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This function creates a packet according to the packet format described
+ in the next section.
+ It then encrypts the data, making it ready for transmission.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+sendAuthResponse
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+After the packet has been created by 
+\family typewriter
+createAuthResponsePacket
+\family default
+(), 
+\family typewriter
+sendAuthResponse()
+\family default
+ is called to transmit the data via the XBee.
+ If the transmission is successful, the sensor node waits for the server
+ to send it a two-factor authentication token.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+receiveServerToken
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This function receives a two-factor authentication token from the server,
+ relayed by the XBee attached to the local machine.
+ The token is three bytes long.
+ Once the token is received and stored successfully, the sensor node is
+ ready to receive the two-factor authentication challenge request from the
+ Android mobile device.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+receiveDeviceToken
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+After the node receives an authentication token from the server, it stores
+ it for the current session.
+ It then waits up to two minutes for the Android mobile device to send it
+ a request containing the token the user was sent.
+ It decrypts this response and verifies it.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+verifyDeviceTokenPacket
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This function checks that the data and token sent by the Android device
+ is correct.
+ It compares the Node ID sent by the device with the current node ID, the
+ device ID sent in the previous request, and XORs the nonces created by
+ the sensor node and the one previously sent by the mobile device, and compares
+ this to the value in the received packet.
+ If all these tests pass, it checks if the token it received from the server
+ matches the one sent by the mobile device.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+sendAuthClearedResponse
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+If the token received by the sensor node from the server matches the one
+ sent by the mobile device, it sends a response to the mobile device indicating
+ that the two-factor authentication was successful.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+receiveFileData
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This function receives the file data sent by the mobile device, checking
+ each packet as it is received and finally matching the file checksum to
+ the one sent by the mobile device.
+ If the checksums match, the file transfer is successful.
+\end_layout
+
+\begin_layout Standard
+All the functions mentioned above print appropriate logs to the Serial Monitor,
+ including appropriate messages when the functions succeed or fail.
 \end_layout
 
 \begin_layout Subsection
