@@ -2138,128 +2138,6 @@ passport.authenticate('basic', { session: false })
 \end_layout
 
 \begin_layout Subsubsection
-Token Generation
-\end_layout
-
-\begin_layout Standard
-Generating the two-factor authentication tokens involves a number of steps.
-\end_layout
-
-\begin_layout Standard
-The process is initiated when a POST request is made to the '
-\family typewriter
-/token-requests
-\family default
-' endpoint, providing the IDs of the node and device for which the token
- is to be generated.
- Since this is an authenticated endpoint, a username-password combination
- is also provided.
- Using this, the user's email address is looked up so that the generated
- token may be emailed to them.
-\end_layout
-
-\begin_layout Standard
-Once the user is found, a new document is inserted into the 
-\series bold
-Transmissions
-\series default
- collection, containing the details of the request and a randomly-generated
- six-digit authentication token.
- Following this, an email is sent to the user containing the two-factor
- authentication token.
-\end_layout
-
-\begin_layout Standard
-Email is handled by the Nodemailer module
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://www.nodemailer.com/
-\end_layout
-
-\end_inset
-
-.
- The module supports SMTP, sendmail, Amazon SES, and custom mail methods.
- In this project, SMTP using Gmail has been used.
- A new Gmail account 
-\family typewriter
-xbee2fa@gmail.com
-\family default
- was created.
- The email address and password are passed to nodemailer using environment
- variables, which must be loaded into the shell before the server is started.
- The module uses SMTP to send an HTML email via Gmail; for clients that
- don't support HTML emails, Nodemailer handily also converts the HTML to
- text via the 
-\family typewriter
-generateTextFromHTML
-\family default
- option.
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:nodemailer"
-
-\end_inset
-
- shows an example of an email sent to a user containing the generated two-factor
- authentication code.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename images/nodemailer.png
-	lyxscale 25
-	width 100line%
-	groupId CenterFull
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-An example two-factor authentication code emailed to a user
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:nodemailer"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
 REST API
 \end_layout
 
@@ -2379,6 +2257,128 @@ Other endpoints include
 /nodes
 \family default
  for creating new nodes.
+\end_layout
+
+\begin_layout Subsubsection
+Token Generation
+\end_layout
+
+\begin_layout Standard
+Generating the two-factor authentication tokens involves a number of steps.
+\end_layout
+
+\begin_layout Standard
+The process is initiated when a POST request is made to the '
+\family typewriter
+/token-requests
+\family default
+' endpoint, providing the IDs of the node and device for which the token
+ is to be generated.
+ Since this is an authenticated endpoint, a username-password combination
+ is also provided.
+ Using this, the user's email address is looked up so that the generated
+ token may be emailed to them.
+\end_layout
+
+\begin_layout Standard
+Once the user is found, a new document is inserted into the 
+\series bold
+Transmissions
+\series default
+ collection, containing the details of the request and a randomly-generated
+ six-digit authentication token.
+ Following this, an email is sent to the user containing the two-factor
+ authentication token.
+\end_layout
+
+\begin_layout Standard
+Email is handled by the Nodemailer module
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.nodemailer.com/
+\end_layout
+
+\end_inset
+
+.
+ The module supports SMTP, sendmail, Amazon SES, and custom mail methods.
+ In this project, SMTP using Gmail has been used.
+ A new Gmail account 
+\family typewriter
+xbee2fa@gmail.com
+\family default
+ was created.
+ The email address and password are passed to nodemailer using environment
+ variables, which must be loaded into the shell before the server is started.
+ The module uses SMTP to send an HTML email via Gmail; for clients that
+ don't support HTML emails, Nodemailer handily also converts the HTML to
+ text via the 
+\family typewriter
+generateTextFromHTML
+\family default
+ option.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nodemailer"
+
+\end_inset
+
+ shows an example of an email sent to a user containing the generated two-factor
+ authentication code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/nodemailer.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An example two-factor authentication code emailed to a user
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nodemailer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
