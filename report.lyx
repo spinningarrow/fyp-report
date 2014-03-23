@@ -1971,7 +1971,7 @@ key
 \family typewriter
 cert
 \family default
- paramaters.
+ parameters.
 \end_layout
 
 \begin_layout Standard
@@ -1980,7 +1980,7 @@ Running the
 curl
 \family default
  command with headers enabled, we can see that the server is running HTTPS
- using TLS 1.2 ecrypted using 256-bit encryption.
+ using TLS 1.2 encrypted using 256-bit encryption.
  The openssl website has a list of all the available ciphers and their descripti
 ons
 \begin_inset Foot
