@@ -2137,7 +2137,7 @@ e using the following single line of code:
 passport.authenticate('basic', { session: false })
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 Token Generation
 \end_layout
 
@@ -2259,12 +2259,126 @@ name "fig:nodemailer"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsubsection
 REST API
 \end_layout
 
 \begin_layout Standard
+The server provides a simple REST API for interacting with it.
+ A RESTful HTTP API makes use of the HTTP verbs such as GET, POST, PUT and
+ DELETE on various resource endpoints based on the type of action that is
+ to be taken on that resource.
+ This API is mainly consumed by the Android application and the polling
+ module running on the local machine, but is easily extensible.
+\end_layout
 
+\begin_layout Standard
+The API is secured using Basic Authentication over HTTPS.
+ In keeping with the statelessness of HTTP and the nature of REST APIs,
+ a username-password combination must be sent with every request.
+ This is easily verified on the server using the Passport module described
+ above, where every API endpoint that needs to be secured simply invokes
+ the 
+\family typewriter
+passport.authenticate
+\family default
+ middleware.
+\end_layout
+
+\begin_layout Standard
+The API endpoints are defined in the routes module uses by the application,
+ with routes pertaining to different components (e.g., Users) separated into
+ their own files.
+ Express allows defining the routes with their corresponding verb using
+ methods such as 
+\family typewriter
+app.get
+\family default
+ (for GET requests) and 
+\family typewriter
+app.post
+\family default
+ (for POST requests).
+ The 
+\family typewriter
+request
+\family default
+ and 
+\family typewriter
+response
+\family default
+ objects are passed into the callback method.
+\end_layout
+
+\begin_layout Standard
+Some of the API endpoints are described below:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+GET /keys/nodeId
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This endpoint retrieves the AES encryption key for the specified node by
+ looking at the Nodes collection.
+ For instance, to get the key for node 1, a GET request would be made to
+ /
+\family typewriter
+keys/1
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+GET /token-requests
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This endpoint gets the last token request created for each node.
+ It uses MongoDB's aggregation mechanism (similar to an SQL 
+\family typewriter
+GROUP BY
+\family default
+ query) and a promises library that ensures that the function returns only
+ after the query has completed.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+POST /token-requests
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+When passed a Node ID and Device ID, this endpoint creates a new token for
+ the specified node, as detailed in the 'Token Generation' sub-section.
+\end_layout
+
+\begin_layout Standard
+Other endpoints include 
+\family typewriter
+/login
+\family default
+ for verifying that a specified username-password combination is valid,
+ 
+\family typewriter
+/users
+\family default
+ for creating new users, and 
+\family typewriter
+/nodes
+\family default
+ for creating new nodes.
 \end_layout
 
 \begin_layout Subsection
