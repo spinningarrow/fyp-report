@@ -2252,6 +2252,10 @@ Other endpoints include
  for creating new nodes.
 \end_layout
 
+\begin_layout Standard
+All endpoints return JSON results with appropriate HTTP status codes.
+\end_layout
+
 \begin_layout Subsubsection
 Token Generation
 \end_layout
@@ -3460,11 +3464,102 @@ All packets are encrypted using AES-256 with the sensor node's encryption
 \end_layout
 
 \begin_layout Subsection
-Polling component
+Server-Node Communicator
+\end_layout
+
+\begin_layout Subsubsection
+Introduction
 \end_layout
 
 \begin_layout Standard
+In order to relay messages from the server to the Arduino sensor node, a
+ communication channel using XBee radios is required.
+ One method by which this can be accomplished is by invoking a shell command
+ or other library from the server that can communicate with a local XBee
+ radio.
+ However, this approach limits the server to be installed on the same machine
+ as the XBee radio.
+ It is also not a very robust solution due to the higher coupling.
+\end_layout
+
+\begin_layout Standard
+Another approach is to have a program that communicates with the server,
+ checking if any messages are to be sent or received.
+ If there are, it uses an XBee radio attached to the machine it is running
+ on to facilitate this communication.
+\end_layout
+
+\begin_layout Standard
+The second approach was implemented in this project.
+ Communication with the server can be achieved by a method of polling or
+ a publish/subscribe paradigm; the former was used due to its ease of set
+ up and compatibility with REST APIs.
+\end_layout
+
+\begin_layout Subsubsection
+Implementation Details
+\end_layout
+
+\begin_layout Standard
+The polling component is a Java program that also uses the 
+\emph on
 xbee-api
+\emph default
+ library, similar to the Android application.
+ The library can be used directly by dropping in the JAR file from the download.
+ However, note that for Mac OS X systems, 
+\family typewriter
+librxtxSerial
+\family default
+ may need to be recompiled to work on the platform.
+\end_layout
+
+\begin_layout Standard
+The main function of this component is to poll the server every two seconds
+ and check if there are any outstanding transmission requests.
+ It uses the 
+\emph on
+Apache HTTPClient 4.3
+\emph default
+ library 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://hc.apache.org/httpcomponents-client-ga/index.html
+\end_layout
+
+\end_inset
+
+ to connect to the server.
+ A 
+\family typewriter
+CredentialsProvider
+\family default
+ is created using the username and password credentials specified to connect
+ to the server using Basic Authentication.
+\end_layout
+
+\begin_layout Standard
+A GET request is made to the server to retrieve the latest token requests.
+ The server responds with a JSON result, which is parsed using the 
+\emph on
+json-simple
+\emph default
+ library
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://code.google.com/p/json-simple/
+\end_layout
+
+\end_inset
+
+.
+ If these requests were created after the last time the server was polled
+ (the timestamp of the last poll is tracked by the program), they are relayed
+ to the respective sensor nodes using a TX request sent by the XBee.
 \end_layout
 
 \begin_layout Section
