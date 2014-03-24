@@ -2384,7 +2384,10 @@ Android application
 \end_layout
 
 \begin_layout Standard
-Here be dragons.
+The Android application is the main user facing application.
+ It consists of some libraries, activities, support classes and user interface
+ components, all of which are described in greater detail in the following
+ sections.
 \end_layout
 
 \begin_layout Subsubsection
