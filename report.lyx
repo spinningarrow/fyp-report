@@ -302,6 +302,13 @@ The application involves using this wireless set up of an Android device
  the mobile device to the sensor node.
 \end_layout
 
+\begin_layout Standard
+The scope of this project thus goes beyond developing only an Android applicatio
+n.
+ It also includes the design and development of an Arduino program, as the
+ development of an authentication server and the services required by it.
+\end_layout
+
 \begin_layout Subsection
 Report Organisation
 \end_layout
