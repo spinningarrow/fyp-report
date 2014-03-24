@@ -5122,8 +5122,66 @@ https://code.google.com/p/json-simple/
 Conclusion
 \end_layout
 
+\begin_layout Subsection
+Summary
+\end_layout
+
 \begin_layout Standard
-conclude something here
+The Android platform has become one of the most successful software platforms
+ in the world, capturing a still untouched proportion of the market share
+ of mobile devices.
+ Due to the platform's versatility, Android applications are finding themselves
+ no longer limited to just phones and tablets, but installed on televisions,
+ embedded in wearable technology and all manner of electronic appliances.
+\end_layout
+
+\begin_layout Standard
+At the same time, the Arduino board reigns as one of the most popular micro-cont
+rollers, used by people as varied as programmers, hobbyists and artists.
+\end_layout
+
+\begin_layout Standard
+A combination of these two technologies can only lead to positive outcomes.
+ As has been demonstrated in this project, interaction and communication
+ between the two disparate devices is not only possible, but also possible
+ securely and wirelessly.
+ A robust system to communication between mobile devices and sensor nodes
+ has been created, which is at the same time secure.
+ 
+\end_layout
+
+\begin_layout Standard
+Since this project is implemented on two highly popular open source technologies
+, it's potential for replication and extension is extremely high.
+ This opens the doors to many possibilities, some of which are discussed
+ in the following section.
+\end_layout
+
+\begin_layout Subsection
+Future Work
+\end_layout
+
+\begin_layout Standard
+This project successfully demonstrate how an Android mobile device can securely
+ and wirelessly communicate with an Arduino device.
+ This opens the door to many future possibilities.
+\end_layout
+
+\begin_layout Standard
+Applications can be written that could create sketches for Arduinos on an
+ Android device (say, a tablet) and then wirelessly load those programs
+ on to a remote Arduino node.
+ In fact, such over-the-air programming is one of the larger goals that
+ this project aims to be a stepping stone towards.
+\end_layout
+
+\begin_layout Standard
+In addition to these, one can use this as a base for securely monitoring
+ and controlling Arduino nodes, for instance, in sensitive environments.
+\end_layout
+
+\begin_layout Standard
+The possibilities are endless, limited only by the imagination.
 \begin_inset Newpage pagebreak
 \end_inset
 
