@@ -1399,6 +1399,50 @@ Server use cases
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/server-use-cases.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Use case diagram for the backend server
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:server-use-cases"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 The server, which performs tasks such as validating user logins, generating
  authentication tokens, and so on, also provides an interface for creating
  new users, updating user details, and adding new sensor nodes with their
@@ -1565,54 +1609,6 @@ reference "fig:server-use-cases"
 \end_inset
 
  is a use case diagram for these use cases.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename images/server-use-cases.png
-	lyxscale 25
-	width 100line%
-	groupId CenterFull
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Use case diagram for the backend server
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:server-use-cases"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -3096,54 +3092,6 @@ AuthServer
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename images/uml-authserver.png
-	lyxscale 25
-	width 100line%
-	groupId CenterFull
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-UML class diagram showing the AuthServer class and its composite class
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:uml-authserver"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Since connecting to the server is a task that needs to be performed from
  various parts of the Android application, the 
 \family typewriter
@@ -3214,6 +3162,50 @@ reference "fig:uml-authserver"
 \end_inset
 
  shows the UML class diagram for the AuthServer class.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/uml-authserver.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+UML class diagram showing the AuthServer class and its composite class
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:uml-authserver"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -3544,8 +3536,8 @@ status open
 \begin_inset Graphics
 	filename images/screen-login.png
 	lyxscale 25
-	width 100line%
-	groupId CenterFull
+	width 50line%
+	groupId CenterHalf
 
 \end_inset
 
@@ -3572,6 +3564,50 @@ name "fig:screen-login"
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/screen-token.png
+	lyxscale 25
+	width 50line%
+	groupId CenterHalf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Screenshot of the token input user interface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:screen-token"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -3805,54 +3841,6 @@ For interfaces that display lists, such as the list of sensor nodes for
 ListView
 \family default
  view group is used.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename images/screen-token.png
-	lyxscale 25
-	width 100line%
-	groupId CenterFull
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Screenshot of the token input user interface
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:screen-token"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
