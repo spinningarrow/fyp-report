@@ -234,6 +234,10 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -286,6 +290,10 @@ Report Organisation
 
 \begin_layout Standard
 how this report is organised
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -470,7 +478,40 @@ Equipment Resources
 \end_layout
 
 \begin_layout Standard
-hello there
+This project makes use of the following equipment:
+\end_layout
+
+\begin_layout Enumerate
+Arduino Due: x1
+\end_layout
+
+\begin_layout Enumerate
+Arduino XBee Shield: x1
+\end_layout
+
+\begin_layout Enumerate
+Android mobile device: x1
+\end_layout
+
+\begin_layout Enumerate
+XBee Radios: x3
+\end_layout
+
+\begin_layout Enumerate
+XBee Explorer Dongles: x2
+\end_layout
+
+\begin_layout Enumerate
+USB on-the-go cable: x1
+\end_layout
+
+\begin_layout Enumerate
+Mini-USB cable: x2
+\end_layout
+
+\begin_layout Standard
+For the server component, a Unix (Linux or Mac OS X) workstation is recommended,
+ but not required.
 \end_layout
 
 \begin_layout Section
