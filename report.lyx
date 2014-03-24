@@ -457,19 +457,11 @@ These applications integrate with Petals to provide specific functionality
 \end_layout
 
 \begin_layout Section
-Resources and Costing
+Equipment Resources
 \end_layout
 
 \begin_layout Standard
 hello there
-\end_layout
-
-\begin_layout Section
-Project Schedule
-\end_layout
-
-\begin_layout Standard
-discuss something here
 \end_layout
 
 \begin_layout Section
@@ -5026,8 +5018,68 @@ conclude something here
 References
 \end_layout
 
-\begin_layout Standard
-references go here
+\begin_layout Enumerate
+Lehtimäki, Juhani.
+ 
+\emph on
+Smashing android UI: Responsive user interfaces and design patterns for
+ android phones and tablets
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Banzi, Massimo.
+ 
+\emph on
+Getting started with Arduino
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Collins, Charlie.
+ 
+\emph on
+Android in Practice
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Fowler, Martin.
+ (2004)
+\end_layout
+
+\begin_layout Enumerate
+Foster, John.
+ 
+\emph on
+XbeeCookbook Issue 1.4
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Krug, Steve.
+ 
+\emph on
+Don't Make Me Think
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Android Developers: http://developer.android.com
+\end_layout
+
+\begin_layout Enumerate
+Designing UI Flows: https://signalvnoise.com/posts/1926-a-shorthand-for-designing
+-ui-flows
+\end_layout
+
+\begin_layout Enumerate
+Use Case diagrams: https://www.andrew.cmu.edu/course/90-754/umlucdfaq.html
 \end_layout
 
 \end_body
