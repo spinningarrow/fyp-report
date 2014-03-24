@@ -471,6 +471,10 @@ These applications integrate with Petals to provide specific functionality
  applications written for the Daisy devices to the store so that other users
  may benefit from them.
  Currently, the App Store consists of 9 applications, all written by DaisyWorks.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -512,6 +516,10 @@ Mini-USB cable: x2
 \begin_layout Standard
 For the server component, a Unix (Linux or Mac OS X) workstation is recommended,
  but not required.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1649,14 +1657,10 @@ When the user opens the application for the first time, they are greeted
  The user is presented with a list of files.
  On choosing a particular file, the file transfer process is initiated,
  with visual feedback showing the status of the file transfer.
-\end_layout
+\begin_inset Newpage pagebreak
+\end_inset
 
-\begin_layout Subsection
-Data Flow diagrams
-\end_layout
 
-\begin_layout Standard
-Flow of data between stuff
 \end_layout
 
 \begin_layout Section
@@ -5042,6 +5046,10 @@ https://code.google.com/p/json-simple/
  If these requests were created after the last time the server was polled
  (the timestamp of the last poll is tracked by the program), they are relayed
  to the respective sensor nodes using a TX request sent by the XBee.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -5054,6 +5062,10 @@ how it is tested
 
 \begin_layout Standard
 discuss
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -5062,6 +5074,10 @@ Conclusion
 
 \begin_layout Standard
 conclude something here
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
