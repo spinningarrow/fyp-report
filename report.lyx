@@ -232,15 +232,11 @@ Introduction
 \end_layout
 
 \begin_layout Subsection
-Background
+Background and Scope
 \end_layout
 
 \begin_layout Standard
 lalalala
-\end_layout
-
-\begin_layout Subsection
-Purpose and Scope
 \end_layout
 
 \begin_layout Standard
@@ -284,7 +280,7 @@ how this report is organised
 \end_layout
 
 \begin_layout Section
-Review of Theory and Previous Work
+Overview of Previous Work and Similar Applications
 \end_layout
 
 \begin_layout Subsection
@@ -4932,10 +4928,6 @@ Testing
 how it is tested
 \end_layout
 
-\begin_layout Section
-Discussion
-\end_layout
-
 \begin_layout Standard
 discuss
 \end_layout
@@ -4946,14 +4938,6 @@ Conclusion
 
 \begin_layout Standard
 conclude something here
-\end_layout
-
-\begin_layout Section
-Recommendations
-\end_layout
-
-\begin_layout Standard
-recommend something
 \end_layout
 
 \begin_layout Section*
