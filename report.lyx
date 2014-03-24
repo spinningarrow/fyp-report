@@ -1548,26 +1548,6 @@ how it is implemented, technologies used
 \end_layout
 
 \begin_layout Subsection
-Software Used
-\end_layout
-
-\begin_layout Standard
-IntelliJ IDEA 13
-\end_layout
-
-\begin_layout Standard
-Sublime Text 3
-\end_layout
-
-\begin_layout Standard
-Arduino IDE
-\end_layout
-
-\begin_layout Standard
-xctu-ng
-\end_layout
-
-\begin_layout Subsection
 Server
 \end_layout
 
