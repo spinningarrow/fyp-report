@@ -313,9 +313,67 @@ Nabto
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/nabto.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Nabto
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Nabto"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Nabto aims at being a “simple solution for device vendors to offer easy
  remote access” as well as the “preferred communication” platform for the
- internet of things.
+ internet of things
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://nabto.com/corporate-overview
+\end_layout
+
+\end_inset
+
+.
  It includes a web server interface for devices providing local and remote
  connectivity with optional central services including remote update and
  storage and logging abilities.
@@ -329,7 +387,11 @@ Supported devices include Raspberry Pi, Windows/Unix, Microchip PIC, Nabduino,
 \end_layout
 
 \begin_layout Standard
-The web interface uses a custom protocol (nabto://).
+The web interface uses a custom protocol (
+\family typewriter
+nabto://
+\family default
+).
  It is also available as an Android app, which is essentially a wrapper
  around the web interface.
 \end_layout
@@ -349,7 +411,27 @@ rature sensors, USB interface, and so on.
 
 \begin_layout Standard
 In order to communicate with the Daisy, there are two main applications
- provided: DaisyCentral, and DaisyWorks Desktop.
+ provided: DaisyCentral
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://daisyworks.com/downloads.html#android
+\end_layout
+
+\end_inset
+
+, and DaisyWorks Desktop
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://daisyworks.com/downloads.html#desktop
+\end_layout
+
+\end_inset
+
+.
  The former is an Android application while the latter is a cross-platform
  desktop application, working on Windows, OSX (not tested on Lion and Mountain
  Lion), and Linux (Debian).
