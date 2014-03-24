@@ -1574,7 +1574,13 @@ The server stack used in this project consists of three main components:
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 Node.js
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1661,7 +1667,13 @@ Heroku - Cloud Application Platform: https://www.heroku.com/
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 Express
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1707,7 +1719,13 @@ http://www.senchalabs.org/connect/
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 MongoDB
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
