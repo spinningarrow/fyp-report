@@ -2391,7 +2391,92 @@ XBee Library
 \end_layout
 
 \begin_layout Standard
-details on XBEE_I2R library.
+The Android application makes use of the XBEE_I2R library developed previously.
+ It builds upon the components in this library and the supporting SDXbeta
+ application.
+\end_layout
+
+\begin_layout Standard
+The XBEE_I2R project is chiefly an adaptation of the 
+\emph on
+xbee-api
+\emph default
+ Java library by Andrew Rapp
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://code.google.com/p/xbee-api/
+\end_layout
+
+\end_inset
+
+ to make it work on the Android platform.
+\end_layout
+
+\begin_layout Standard
+xbee-api is a Java API for communication with XBee radio modules in API
+ mode.
+ It is compatible with Windows, OS X, as well as Linux.
+ It can transmit and receive a wide range of packets including but not limited
+ to AT commands, 16- and 64-bit addressed TX and RX, status responses and
+ so on.
+\end_layout
+
+\begin_layout Standard
+XBEE_I2R uses the Android Java D2XX driver [http://www.ftdichip.com/Drivers/D2XX.ht
+m] to send and receive data via USB to the XBee radio, converting the the
+ serial transmissions required by the XBee into the USB signals that can
+ be read by the Android device.
+ The XBee radio is attached to an XBee Explorer connected via mini-USB to
+ the Android device.
+ The Android device used must support USB OTG (on-the-go) for this to work,
+ which is supported by Android versions 3.1 and newer
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://developer.android.com/guide/topics/connectivity/usb/host.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This project contains several classes, most of which are imported from the
+ xbee-api library.
+ The functions of the relevant extra classes is as follows:
+\end_layout
+
+\begin_layout Enumerate
+The 
+\family typewriter
+InitializeDevice
+\family default
+ class is used to initialise the FTDI device, configure and connect to it.
+ It contains a 
+\family typewriter
+getDevice
+\family default
+ method that returns an instance of the initialised device.
+ It is used by the Android activities that need to transmit data using the
+ XBee.
+\end_layout
+
+\begin_layout Enumerate
+The 
+\family typewriter
+ReadService
+\family default
+ class creates a background service for the Android application that checks
+ for new packets in the XBee buffer and sends broadcasts according to the
+ packet type.
+ The intent filters of the various activities in the application filter
+ these broadcasts for those packets that are relevant to them.
+ This class has been modified appropriately to handle the various packets
+ required by this project.
 \end_layout
 
 \begin_layout Subsubsection
