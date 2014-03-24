@@ -170,17 +170,37 @@ School of Computer Engineering
 \end_layout
 
 \begin_layout Abstract
-Something wicked this way comes, by the pricking of my thumbs.
- How does the abstract end? Where is the line going to wrap? What is going
- on?
+The project aims to develop an interesting and innovative mobile application
+ for an Android-powered mobile device.
+ Although Android is now the most popular programming platform, there are
+ still areas where apps can be found lacking.
+ It is this divide that the project aims to bridge.
 \end_layout
 
 \begin_layout Abstract
-Is the next section a part of the abstract?
+In this project, an Android application that uses two-factor authentication
+ to perform secure wireless communication with Arduino sensor nodes, along
+ with the additional ability to transfer files from the Android device to
+ an Arduino node is developed.
 \end_layout
 
 \begin_layout Abstract
-What sorcery is this, pray tell me?
+The scope of this project goes beyond purely Android application development,
+ to include Arduino programming, and server programming.
+ An iterative development was used in this project, incrementally and simultaneo
+usly adding features to all components as the project progressed.
+\end_layout
+
+\begin_layout Abstract
+This project successfully demonstrates the ability to perform secure wireless
+ communication between disparate mobile devices such as Android phones and
+ Arduino nodes.
+ Transferring files is a good step in reaching eventual goals such as OTA
+ programming, secure monitoring and control, and much more.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -188,25 +208,27 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-I would like to express my heartfelt gratitude to all those people who contribut
-ed their time, energy, and effort into making this project possible.
+The author would like to express his heartfelt gratitude to all those people
+ who contributed their time, energy, and effort into making this project
+ possible.
 \end_layout
 
 \begin_layout Standard
-First of all, I would like to thank Assistant Professor Dusit Niyato for
- his guidance, understanding, and patience.
+First of all, the author would like to thank his supervisor, Assistant Professor
+ Dusit Niyato for his guidance, understanding, and patience.
 \end_layout
 
 \begin_layout Standard
-I would also like to thank the people at I2R, especially Dr Joseph Teo Chee
- Ming, and Dr Tan Hwee Xian, for their support, ideas and assistance.
+The author would also like to thank the people at I2R, especially Dr Joseph
+ Teo Chee Ming, and Dr Tan Hwee Xian, for their support, ideas and assistance.
 \end_layout
 
 \begin_layout Standard
-Finally, I am very grateful to my friends: Chithra Srinivasan for lending
- me an Arduino and other components in the initial stages of the project,
- Gemeng Qin for the her tablet and moral support, and Shahbaaz Sabharwal
- for being a great roommate while I worked late into the night.
+Finally, the author am very grateful to his friends: especially, Chithra
+ Srinivasan for lending an Arduino and other components in the initial stages
+ of the project, Shahbaaz Sabharwal for being a great roommate despite all
+ the late-night coding, and Gemeng Qin for the her tablet, inspiration,
+ and moral support.
 \begin_inset Newpage pagebreak
 \end_inset
 
