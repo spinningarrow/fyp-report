@@ -2483,16 +2483,325 @@ ReadService
 Functional Implementations
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph
 User login
 \end_layout
 
 \begin_layout Standard
+When the user opens the application for the first time, they are greeted
+ by the Login activity, which contains fields for keying in a username and
+ a password.
+\end_layout
+
+\begin_layout Standard
+When the submit button is pressed, an 
+\family typewriter
+onSubmitClicked
+\family default
+ event handler is called.
+ This method captures the values of the two fields, and queries the server
+ in an 
+\family typewriter
+AsyncTask
+\family default
+ – the 
+\family typewriter
+LoginUserTask
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+In Android development, an 
+\family typewriter
+AsyncTask
+\family default
+ allows performing background operations and publishing their results on
+ the UI thread without having to manipulate threads or handlers
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://developer.android.com/reference/android/os/AsyncTask.html
+\end_layout
+
+\end_inset
+
+.
+ Operations such as network requests 
+\emph on
+must
+\emph default
+ be performed inside an 
+\family typewriter
+AsyncTask
+\family default
+ – the application crashes if they are attempted directly on the UI thread.
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+LoginUserTask
+\family default
+ creates an 
+\family typewriter
+HttpClient
+\family default
+ that queries the 
+\family typewriter
+'/login'
+\family default
+ API endpoint with the username and password entered by the user.
+ The status code returned by the web request is saved in the background
+ method and passed on to the 
+\family typewriter
+AsyncTask
+\family default
+'s 
+\family typewriter
+onPostExecute
+\family default
+ method.
+\end_layout
+
+\begin_layout Standard
+The 
+\family typewriter
+onPostExecute
+\family default
+ method checks if the request succeeded (status code 
+\family typewriter
+200
+\family default
+).
+ If it did, the user entered valid credentials, which are then stored by
+ the application.
+\end_layout
+
+\begin_layout Standard
+A status code of 
+\family typewriter
+401
+\family default
+ indicates an 
+\family typewriter
+'Unauthorized'
+\family default
+ response, which means the credentials are not valid.
+ The user is prompted to enter the username and password again.
+\end_layout
+
+\begin_layout Paragraph
 Fetching the authentication key
 \end_layout
 
 \begin_layout Standard
-Two-factor authentication
+Once the user is successfully logged in, they can choose to commence the
+ two-factor authentication procedure with a particular sensor node.
+ The user may choose any of the accessible nodes.
+ The 
+\family typewriter
+TFARequest
+\family default
+ activity handles this process.
+\end_layout
+
+\begin_layout Standard
+First, the encryption key for the chosen node must be retrieved from the
+ server.
+ This happens in the 
+\family typewriter
+RequestKeyTask
+\family default
+.
+ The 
+\family typewriter
+RequestKeyTask
+\family default
+ is also an 
+\family typewriter
+AsyncTask
+\family default
+, conceptually similar to the 
+\family typewriter
+LoginUserTask
+\family default
+.
+ It queries the 
+\family typewriter
+'/keys/:nodeId'
+\family default
+ endpoint of the server API.
+ If the request is successful (
+\family typewriter
+200 OK
+\family default
+), the response body is read.
+ The response body is a JSON string, which is parsed into a 
+\family typewriter
+JSONObject
+\family default
+.
+ From this 
+\family typewriter
+JSONObject
+\family default
+, the 
+\family typewriter
+'authKey'
+\family default
+ property is accessed and saved.
+\end_layout
+
+\begin_layout Standard
+After the encryption key is retrieved, an Xbee TX packet needs to be sent
+ to the sensor node containing the details of the two-factor authentication
+ request along with a challenge.
+ This is done using the 
+\family typewriter
+PacketHelper
+\family default
+ class's 
+\family typewriter
+create2FARequestPacket
+\family default
+ method, which is explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Support-Classes"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finally, the application waits for the sensor node to respond to the two-factor
+ authentication request.
+ A 
+\family typewriter
+BroadcastReceiver
+\family default
+ receives the response caught by the 
+\family typewriter
+ReadService
+\family default
+ service described previously.
+ The response is decrypted using 
+\family typewriter
+SimpleCrypto.decrypt
+\family default
+ and then validated using 
+\family typewriter
+PacketHelper.isValid2FAResponsePacket
+\family default
+.
+ Both these methods are also described in greater detail in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Support-Classes"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If the sensor node's response is valid, the application moves on to the
+ next step, which is to request the server for a two-factor authentication
+ token.
+\end_layout
+
+\begin_layout Paragraph
+Two-factor authentication token
+\end_layout
+
+\begin_layout Standard
+After the sensor node verifies the two-factor authentication request, a
+ new auth token must be generated by the server.
+ The 
+\family typewriter
+RequestTokenTask
+\family default
+ handles this responsibility.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+RequestTokenTask
+\family default
+ is also an 
+\family typewriter
+AsyncTask
+\family default
+.
+ It sends the node ID and device ID to the server's 
+\family typewriter
+'/token-requests'
+\family default
+ endpoint using an Apache 
+\family typewriter
+HttpPost
+\family default
+ instance.
+\end_layout
+
+\begin_layout Standard
+This triggers the creation of a token by the server, which it communicates
+ to the sensor node and to the user.
+ If this succeeds, the HTTP request returns a status code of 
+\family typewriter
+200
+\family default
+.
+ In this case, the user is prompted to enter the two-factor authentication
+ token they received, while the sensor node waits for two minutes to receive
+ the token.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+PacketHelper
+\family default
+'s 
+\family typewriter
+create2FATokenPacket
+\family default
+ method is used to create a packet in the correct format (cf.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Packet-Formats"
+
+\end_inset
+
+ and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Support-Classes"
+
+\end_inset
+
+).
+ This is transmitted through the 
+\family typewriter
+FT_Device
+\family default
+ to the XBee attached to the Android mobile device, which communicates with
+ the sensor node.
+\end_layout
+
+\begin_layout Standard
+The sensor node verifies that the tokens match, and confirms to the Android
+ application that the two-factor authentication succeeded.
+ This response from the XBee is caught by a 
+\family typewriter
+BroadcastReceiver
+\family default
+, similar to the one described above.
 \end_layout
 
 \begin_layout Standard
@@ -2501,6 +2810,13 @@ File transfer
 
 \begin_layout Subsubsection
 Support Classes
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Support-Classes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
