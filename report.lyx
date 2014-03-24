@@ -1544,7 +1544,10 @@ Implementation Details
 \end_layout
 
 \begin_layout Standard
-how it is implemented, technologies used
+This section describes how the four different components described in the
+ Design section have been implemented in the project's codebase.
+ Each component is in a separate section, with its child components described
+ in sub-sections or paragraphs, depending on the level of detail.
 \end_layout
 
 \begin_layout Subsection
