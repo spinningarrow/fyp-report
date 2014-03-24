@@ -2804,8 +2804,50 @@ BroadcastReceiver
 , similar to the one described above.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph
 File transfer
+\end_layout
+
+\begin_layout Standard
+Once the mobile device and sensor node have established secure authentication,
+ the application is ready to transfer a file to the sensor node.
+\end_layout
+
+\begin_layout Standard
+The user is presented with a list of files to choose from.
+ The files are of differing sizes.
+ Once the user chooses to send a file, the 
+\family typewriter
+transferFile
+\family default
+ method handles this process.
+ For local files, the 
+\family typewriter
+File
+\family default
+ object is converted to a byte array using 
+\family typewriter
+FileUtils.readFileToByteArray()
+\family default
+.
+ For remote files, this is accomplished using 
+\family typewriter
+EntityUtils.toByteArray()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+In API mode, an XBee can transmit a payload of a maximum of 100 bytes in
+ length.
+ The byte array is thus converted into multiple payloads if required.
+ The beginning of the first payload contains the checksum for the entire
+ file.
+ The payloads are transmitted to the sensor node.
+ Once the sensor node receives all the payloads, it computes the checksum
+ and compares it with the checksum sent by the mobile device.
+ If the two match, the sensor node communicates a success message to the
+ mobile device.
 \end_layout
 
 \begin_layout Subsubsection
