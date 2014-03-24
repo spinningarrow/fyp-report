@@ -2794,7 +2794,134 @@ PacketHelper
 \end_layout
 
 \begin_layout Standard
-Description
+This is a helper class that offloads the bootstrapping of XBee packets,
+ as well as the creation and validation of specific kinds of packets.
+ It is used by the Android activities whenever a packet needs to be created
+ or validated, for instance during the two-factor authentication procedure.
+\end_layout
+
+\begin_layout Standard
+There are two general-purpose methods in the PacketHelper class: 
+\family typewriter
+createPayload
+\family default
+ and 
+\family typewriter
+createOutData
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+The way the xbee-api library works is that it first creates an integer array
+ from a byte array, which is used when creating a 
+\family typewriter
+Tx16Request
+\family default
+ (say).
+ This is done by the 
+\family typewriter
+createPayload
+\family default
+ method.
+\end_layout
+
+\begin_layout Standard
+When the created 
+\family typewriter
+XbeePacket
+\family default
+ has to be sent to the XBee attached to the Android device via the 
+\family typewriter
+FT_Device
+\family default
+, it needs to be converted back to a byte array.
+ This is done by 
+\family typewriter
+createOutData
+\family default
+, after which the data can be written to the instantiated 
+\family typewriter
+FT_Device
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+The following are the situation-specific methods in this class:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+create2FARequestPacket
+\family default
+ 
+\begin_inset Newline newline
+\end_inset
+
+This method creates the packet for requesting a sensor node to commence
+ the 2FA procedure.
+ It creates an encrypted 
+\family typewriter
+XbeePacket
+\family default
+ according to the packet format specified in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Packet-Formats"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+create2FATokenRequest
+\begin_inset Newline newline
+\end_inset
+
+
+\family default
+This method is similar to the previous one i.e., it creates an 
+\family typewriter
+XBeePacket
+\family default
+ for the two-factor authentication procedure which contains the token input
+ by the user.
+ The format for this packet is also described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Packet-Formats"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+isValid2FAResponsePacket
+\family default
+ 
+\begin_inset Newline newline
+\end_inset
+
+After sending a request to the sensor node to commence the two-factor authentica
+tion procedure, the sensor node responds with its own reply containing nonces
+ and other details if the request was accepted.
+ This method verifies the response from the sensor node.
+ It compares the sent and received node IDs and device IDs.
+ It also checks if the nonce that it sent is the same as the one that the
+ sensor node received.
+ The method returns 
+\family typewriter
+true
+\family default
+ if all the tests pass.
 \end_layout
 
 \begin_layout Subsubsection
@@ -3463,6 +3590,13 @@ All the functions mentioned above print appropriate logs to the Serial Monitor,
 
 \begin_layout Subsubsection
 Packet Formats
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Packet-Formats"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
