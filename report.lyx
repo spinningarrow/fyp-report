@@ -2484,7 +2484,19 @@ Functional Implementations
 \end_layout
 
 \begin_layout Standard
-details.
+User login
+\end_layout
+
+\begin_layout Standard
+Fetching the authentication key
+\end_layout
+
+\begin_layout Standard
+Two-factor authentication
+\end_layout
+
+\begin_layout Standard
+File transfer
 \end_layout
 
 \begin_layout Subsubsection
