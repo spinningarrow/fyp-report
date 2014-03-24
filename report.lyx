@@ -190,30 +190,39 @@ Acknowledgements
 \end_layout
 
 \begin_layout Standard
-I would like to thank the academy, the mystical pink unicorn and potatoes.
+I would like to express my heartfelt gratitude to all those people who contribut
+ed their time, energy, and effort into making this project possible.
 \end_layout
 
 \begin_layout Standard
-The Wheel of time turns and ages come and pass, leaving memories that become
- legend.
- Legend fades to myth and even myth is long forgotten when the age that
- gave it birth comes again.
- In one such age, an Age yet to come, an age long past; a wind rose in the
- mountains.
- The wind was not the beginning.
- There are neither beginnings nor endings to the turning of the Wheel of
- Time.
- But it was 
-\emph on
-a
-\emph default
- beginning.
+First of all, I would like to thank Assistant Professor Dusit Niyato for
+ his guidance, understanding, and patience.
+\end_layout
+
+\begin_layout Standard
+I would also like to thank the people at I2R, especially Dr Joseph Teo Chee
+ Ming, and Dr Tan Hwee Xian, for their support, ideas and assistance.
+\end_layout
+
+\begin_layout Standard
+Finally, I am very grateful to my friends: Chithra Srinivasan for lending
+ me an Arduino and other components in the initial stages of the project,
+ Gemeng Qin for the her tablet and moral support, and Shahbaaz Sabharwal
+ for being a great roommate while I worked late into the night.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
+\end_inset
+
+
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -5015,7 +5024,7 @@ conclude something here
 \end_layout
 
 \begin_layout Section*
-References
+Bibliography
 \end_layout
 
 \begin_layout Enumerate
