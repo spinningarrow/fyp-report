@@ -2484,7 +2484,13 @@ Functional Implementations
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 User login
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2593,7 +2599,15 @@ A status code of
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 Fetching the authentication key
+\shape default
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2714,7 +2728,13 @@ If the sensor node's response is valid, the application moves on to the
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 Two-factor authentication token
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2805,7 +2825,13 @@ BroadcastReceiver
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 File transfer
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2866,7 +2892,13 @@ This section describes the non-activity classes used in the Android application.
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 AuthServer
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2991,7 +3023,13 @@ reference "fig:uml-authserver"
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 SimpleCrypto
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3030,10 +3068,6 @@ name "fig:uml-simplecrypto"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3160,7 +3194,13 @@ reference "fig:uml-simplecrypto"
 \end_layout
 
 \begin_layout Paragraph
+
+\shape smallcaps
 PacketHelper
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
