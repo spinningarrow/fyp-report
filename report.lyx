@@ -2500,6 +2500,54 @@ AuthServer
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/uml-authserver.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+UML class diagram showing the AuthServer class and its composite class
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:uml-authserver"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Since connecting to the server is a task that needs to be performed from
  various parts of the Android application, the 
 \family typewriter
@@ -2561,8 +2609,67 @@ TrustManager
  that accepts the self-signed certificate.
 \end_layout
 
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:uml-authserver"
+
+\end_inset
+
+ shows the UML class diagram for the AuthServer class.
+\end_layout
+
 \begin_layout Paragraph
 SimpleCrypto
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/uml-simplecrypto.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+UML class diagram for the SimpleCrypto class
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:uml-simplecrypto"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2672,11 +2779,22 @@ DEAD
 \end_layout
 
 \begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:uml-simplecrypto"
+
+\end_inset
+
+ shows the UML class diagram for the SimpleCrypto class.
+\end_layout
+
+\begin_layout Paragraph
 PacketHelper
 \end_layout
 
 \begin_layout Standard
-
+Description
 \end_layout
 
 \begin_layout Subsubsection
