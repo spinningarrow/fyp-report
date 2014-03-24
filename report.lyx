@@ -2480,7 +2480,7 @@ ReadService
 \end_layout
 
 \begin_layout Subsubsection
-Functional Implementation
+Functional Implementations
 \end_layout
 
 \begin_layout Standard
@@ -2492,7 +2492,191 @@ Support Classes
 \end_layout
 
 \begin_layout Standard
-details.
+This section describes the non-activity classes used in the Android application.
+\end_layout
+
+\begin_layout Paragraph
+AuthServer
+\end_layout
+
+\begin_layout Standard
+Since connecting to the server is a task that needs to be performed from
+ various parts of the Android application, the 
+\family typewriter
+AuthServer
+\family default
+ class is used to make the process easier.
+ It defines a constant with the server URL.
+ If the server will be running locally (as in the current set up), a dynamic-DNS
+ based URL can be created using a service such as No-IP
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.noip.com/
+\end_layout
+
+\end_inset
+
+ to avoid messing around with changing IP addresses.
+\end_layout
+
+\begin_layout Standard
+There is one primary method in this class: 
+\family typewriter
+getNewHttpClient
+\family default
+.
+ It returns an instance of Apache's 
+\family typewriter
+HttpClient
+\family default
+.
+ The method can be invoked with or without passing in a 
+\family typewriter
+username
+\family default
+ and 
+\family typewriter
+password
+\family default
+; in the former case, the 
+\family typewriter
+HttpClient
+\family default
+ will be set up with the provided credentials using Basic Authentication.
+\end_layout
+
+\begin_layout Standard
+Since we are using a self-signed certificate not provided by a known Certificate
+ Authority, the Android application must be instructed to allow it.
+ For this purpose a class that extends 
+\family typewriter
+SSLSocketFactory
+\family default
+ is created which creates a 
+\family typewriter
+TrustManager
+\family default
+ that accepts the self-signed certificate.
+\end_layout
+
+\begin_layout Paragraph
+SimpleCrypto
+\end_layout
+
+\begin_layout Standard
+This class provides methods to encrypt and decrypt strings or raw byte arrays
+ using a specified cipher transformation algorithm
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html
+\end_layout
+
+\end_inset
+
+.
+ The one used here is 
+\family typewriter
+AES/ECB/NoPadding
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+It has an 
+\family typewriter
+encrypt
+\family default
+ method that accepts an encryption key and the clear (unencrypted) data
+ and returns the data in encrypted form.
+ Similarly, the 
+\family typewriter
+decrypt
+\family default
+ method accepts a key and encrypted data, returning the unencrypted data.
+ Both these methods use Oracle's 
+\family typewriter
+Cipher
+\family default
+ class from the 
+\family typewriter
+javax.crypto
+\family default
+ package to perform the encryption.
+\end_layout
+
+\begin_layout Standard
+SimpleCrypto also contains a couple of helper methods as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+toByte
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This method accepts a hex string (such as 
+\begin_inset Quotes eld
+\end_inset
+
+FF0A
+\begin_inset Quotes erd
+\end_inset
+
+) and returns a byte array corresponding to the hex string.
+ For example, if the string provided is 
+\begin_inset Quotes eld
+\end_inset
+
+FF0A
+\begin_inset Quotes erd
+\end_inset
+
+, then the resulting byte array will be: 
+\family typewriter
+{ 0xFF, 0x0A }
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+toHex
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+This method does the reverse of the previous one, i.e., a provided byte array
+ is converted to a hex string.
+ For example, if the byte array is 
+\family typewriter
+{ 0xDE, 0xAD }
+\family default
+, the resulting string will be 
+\begin_inset Quotes eld
+\end_inset
+
+DEAD
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+PacketHelper
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Subsubsection
