@@ -1840,7 +1840,7 @@ status open
 
 
 \backslash
-lstinputlisting[language=C,]{code/mongoose.js}
+lstinputlisting[language=Java]{code/mongoose.js}
 \end_layout
 
 \end_inset
@@ -3299,7 +3299,402 @@ User Interface
 \end_layout
 
 \begin_layout Standard
-details.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/screen-login.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Screenshot of the login user interface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:screen-login"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An Android activity specifies its user interface using the 
+\family typewriter
+setContentView
+\family default
+ method inside its 
+\family typewriter
+onCreate
+\family default
+ method.
+ The 
+\family typewriter
+setContentView
+\family default
+ method accepts a resource to a layout XML file.
+\end_layout
+
+\begin_layout Standard
+Android layout files are XML files containing the definitions for the type
+ of layout the activity follows, the various widgets placed in the layout
+ and other associated properties.
+ The user interface in an Android application uses a hierarchy of 
+\family typewriter
+View
+\family default
+ objects (usually UI widgets such as buttons or text fields) and 
+\family typewriter
+ViewGroup
+\family default
+ objects (invisible view containers that define how the child views are
+ laid out, such as in a grid or a vertical list)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://developer.android.com/training/basics/firstapp/building-ui.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The vocabulary used in the XML files thus corresponds to subclasses of these
+ 
+\family typewriter
+View
+\family default
+ and 
+\family typewriter
+ViewGroup
+\family default
+ objects.
+\end_layout
+
+\begin_layout Standard
+The XML code below shows a simple layout, used for the interface for entering
+ the two-factor authentication token.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstset{tabsize=2,breaklines=true,numbers=left,xleftmargin=30pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinputlisting[language=XML]{code/tokenlayout.xml}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The interfaces in this application use the 
+\family typewriter
+LinearLayout
+\family default
+ view group, where children are arranged in a single coloumn.
+ For example, the layout declaration for the login activity is as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:orientation="vertical"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_width="match_parent"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_height="match_parent"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:gravity="center_vertical|center_horizontal">
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The layout files also specify the methods to be invoked when a specific
+ action is performed by the user, such as pressing a button.
+ For instance, the login activity specifies that the 
+\family typewriter
+onSubmitClicked
+\family default
+ method should be called when the user clicks the submit button:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<Button
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_width="wrap_content"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_height="wrap_content"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:text="Submit"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:id="@+id/submit" android:onClick="onSubmitClicked"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_gravity="center"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_margin="@dimen/activity_horizontal_margin"/>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This method needs to be defined in the activity class to which this layout
+ is applied.
+ 
+\end_layout
+
+\begin_layout Standard
+For interfaces that display lists, such as the list of sensor nodes for
+ connecting, the 
+\family typewriter
+ListView
+\family default
+ view group is used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename images/screen-token.png
+	lyxscale 25
+	width 100line%
+	groupId CenterFull
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Screenshot of the token input user interface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:screen-token"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Additionally, there are several places in the application where the user
+ is asked enter input, such as the username, password, token, and so on.
+ Android allows specific keyboards to be shown to the user depending on
+ the type of input required using the
+\family typewriter
+ android:inputType
+\family default
+ attribute of the 
+\family typewriter
+EditText
+\family default
+ element.
+ Appropriate keyboards have been shown, for instance, since the token consists
+ only of numbers, a numeric keyboard is displayed to the user by default.
+ The code for this is shown below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<EditText
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_width="220dp"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_height="wrap_content"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:id="@+id/editTextToken" android:hint="Token"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:inputType="numberSigned"
+\end_layout
+
+\begin_layout Plain Layout
+
+  android:layout_margin="@dimen/activity_horizontal_margin"/>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:screen-login"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:screen-token"
+
+\end_inset
+
+ show screenshots of the login and token input interfaces, respectively.
 \end_layout
 
 \begin_layout Subsection
